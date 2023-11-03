@@ -1,0 +1,23 @@
+// Font Imports
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  font-weight: 400;
+  src: url("../../../assets/fonts/avenir-next-lt-pro-regular.woff")
+      format("woff"),
+    url("../../../assets/fonts/avenir-next-lt-pro-regular.woff2")
+      format("woff2");
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  font-weight: 600;
+  src: url("../../../assets/fonts/avenir-next-lt-pro-demi.woff") format("woff"),
+    url("../../../assets/fonts/avenir-next-lt-pro-demi.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  font-weight: 700;
+  src: url("../../../assets/fonts/avenir-next-lt-pro-bold.woff") format("woff"),
+    url("../../../assets/fonts/avenir-next-lt-pro-bold.woff2") format("woff2");
+}
