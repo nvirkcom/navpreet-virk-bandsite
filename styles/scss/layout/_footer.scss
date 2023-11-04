@@ -1,0 +1,50 @@
+@use "../abstracts/variables" as *;
+@use "../base/typography";
+
+.footer {
+  @extend .footer-copy;
+  background-color: $bandsite-black;
+  color: $white;
+  padding-bottom: 1rem;
+
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__address {
+    font-style: normal;
+    margin-top: 1.5rem;
+
+    &-name {
+      font-weight: 600;
+    }
+
+    &-text,
+    &-email {
+      margin-top: 1rem;
+    }
+
+    &-email {
+      display: inline-block;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-top: 4rem;
+    max-height: 1.25rem;
+    max-width: 7.5rem;
+  }
+
+  &__text {
+    @extend .label;
+    font-weight: 400;
+    margin-top: 0.5rem;
+  }
+}

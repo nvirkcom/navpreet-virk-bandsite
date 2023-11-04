@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as *;
+@use "../base/typography";
+
+.about {
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+  }
+
+  &__quote {
+    @extend .sub-header;
+    &,
+    &-footer {
+      margin-top: 0.5rem;
+    }
+  }
+
+  &__sub-heading {
+    @extend .sub-header;
+    margin-top: 1.5rem;
+  }
+
+  &__text {
+    @extend .body-copy;
+    margin-bottom: 1rem;
+  }
+}

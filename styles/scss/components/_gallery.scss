@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+@use "../base/typography";
+
+.gallery {
+  background-color: $alabaster;
+  padding-bottom: 0.5rem;
+
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+  }
+
+  &__image {
+    margin-top: 0.5rem;
+  }
+}

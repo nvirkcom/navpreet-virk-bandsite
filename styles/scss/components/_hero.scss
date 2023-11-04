@@ -1,0 +1,26 @@
+@use "../abstracts/variables" as *;
+@use "../base/typography";
+
+.hero {
+  background-image: url("../../../assets/images/hero-bio.jpg");
+  background-size: cover;
+  color: $white;
+  padding: 4rem 0;
+  position: relative;
+  z-index: -2;
+
+  &::after {
+    background-color: rgba($bandsite-black, 50%);
+    content: "";
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+  }
+
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+  }
+}

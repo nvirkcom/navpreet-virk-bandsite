@@ -1,3 +1,30 @@
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+blockquote,
+body,
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 @font-face {
   font-family: "Avenir Next LT Pro";
   font-weight: 400;
@@ -12,4 +39,155 @@
   font-family: "Avenir Next LT Pro";
   font-weight: 700;
   src: url("../../../assets/fonts/avenir-next-lt-pro-bold.woff") format("woff"), url("../../../assets/fonts/avenir-next-lt-pro-bold.woff2") format("woff2");
+}
+body {
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
+.page-header,
+.section-header,
+.hero__heading,
+.gallery__heading,
+.about__heading,
+.footer__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  padding: 1.5rem 0 1rem;
+}
+
+.sub-header, .about__quote, .about__sub-heading {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.375rem;
+}
+
+.body-copy, .about__text, .header__nav-link, body,
+.footer-copy,
+.footer {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+}
+
+.label, .footer__text,
+.button {
+  font-size: 0.625rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.footer {
+  background-color: #323232;
+  color: #ffffff;
+  padding-bottom: 1rem;
+}
+.footer__heading {
+  font-weight: 600;
+}
+.footer__icons {
+  display: flex;
+  gap: 2rem;
+}
+.footer__address {
+  font-style: normal;
+  margin-top: 1.5rem;
+}
+.footer__address-name {
+  font-weight: 600;
+}
+.footer__address-text, .footer__address-email {
+  margin-top: 1rem;
+}
+.footer__address-email {
+  display: inline-block;
+}
+.footer__logo {
+  display: inline-block;
+  margin-top: 4rem;
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+}
+.footer__text {
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.container {
+  padding: 0 1rem;
+}
+
+.header {
+  background-color: #323232;
+  color: #e1e1e1;
+  text-align: center;
+}
+.header__logo {
+  box-sizing: content-box;
+  margin: 16px 0 0.25rem;
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+}
+.header__nav-list {
+  display: flex;
+}
+.header__nav-item {
+  flex-grow: 1;
+  width: 50%;
+}
+.header__nav-link {
+  display: block;
+  padding: 8px 0;
+}
+.header__nav-link--active {
+  font-weight: 600;
+}
+.header__nav-link--active, .header__nav-link:hover {
+  border-bottom: #ffffff 0.25rem solid;
+  color: #ffffff;
+}
+
+.about__heading {
+  font-weight: 600;
+}
+.about__quote, .about__quote-footer {
+  margin-top: 0.5rem;
+}
+.about__sub-heading {
+  margin-top: 1.5rem;
+}
+.about__text {
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  background-color: #fafafa;
+  padding-bottom: 0.5rem;
+}
+.gallery__heading {
+  font-weight: 600;
+}
+.gallery__image {
+  margin-top: 0.5rem;
+}
+
+.hero {
+  background-image: url("../../../assets/images/hero-bio.jpg");
+  background-size: cover;
+  color: #ffffff;
+  padding: 4rem 0;
+  position: relative;
+  z-index: -2;
+}
+.hero::after {
+  background-color: rgba(50, 50, 50, 0.5);
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.hero__heading {
+  font-weight: 600;
 }
