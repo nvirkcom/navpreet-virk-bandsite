@@ -1,27 +1,59 @@
 @use "../abstracts/variables" as *;
 @use "../base/typography";
+@use "../abstracts/mixins" as *;
 
 .about {
+  padding-bottom: 1rem;
+
+  @include medium {
+    padding-bottom: 2rem;
+  }
+
   &__heading {
     @extend .section-header;
     font-weight: 600;
+
+    @include medium {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__content {
+    @include medium {
+      padding: 0 3.5rem;
+    }
   }
 
   &__quote {
     @extend .sub-header;
     &,
     &-footer {
-      margin-top: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    &-footer {
+      @extend .body-copy;
+      font-weight: 700;
     }
   }
 
   &__sub-heading {
     @extend .sub-header;
     margin-top: 1.5rem;
+
+    @include medium {
+      margin-top: 3.5rem;
+    }
+  }
+
+  &__text-container {
+    @include medium {
+      display: flex;
+      gap: 1.5rem;
+    }
   }
 
   &__text {
     @extend .body-copy;
-    margin-bottom: 1rem;
   }
 }

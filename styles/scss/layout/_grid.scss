@@ -1,3 +1,15 @@
+@use "../abstracts/mixins" as *;
+
 .container {
   padding: 0 1rem;
+
+  @include medium {
+    padding: 0 2.25rem;
+  }
+
+  @include large {
+    margin: auto;
+    max-width: 63.75rem;
+    width: 63.75rem;
+  }
 }

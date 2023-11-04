@@ -1,4 +1,6 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "../abstracts/mixins" as *;
 
 // Font Imports
 @font-face {
@@ -29,19 +31,41 @@ body {
   @extend .body-copy;
 }
 
-// Mobile Text Styles
 .page-header,
 .section-header {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2rem;
-  padding: $padding-before-headline 0 $padding-after-headline;
+  padding: 1.5rem 0 1rem;
+
+  @include medium {
+    padding: 3rem 0 2.25rem;
+  }
+}
+
+.page-header {
+  @include medium {
+    font-size: 3.75rem;
+    line-height: 4.25rem;
+  }
+}
+
+.section-header {
+  @include medium {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
 }
 
 .sub-header {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.375rem;
+
+  @include medium {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 }
 
 .body-copy,
@@ -49,11 +73,35 @@ body {
   font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.125rem;
+
+  @include medium {
+    font-size: 0.875rem;
+  }
+}
+
+.body-copy {
+  @include medium {
+    line-height: 1.375rem;
+  }
+}
+
+.footer-copy {
+  @include medium {
+    line-height: 1.25rem;
+  }
 }
 
 .label,
 .button {
   font-size: 0.625rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25rem;
+
+  @include medium {
+    font-size: 0.75rem;
+  }
+}
+
+.hidden-text {
+  display: none;
 }

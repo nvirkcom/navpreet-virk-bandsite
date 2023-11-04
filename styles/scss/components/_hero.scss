@@ -1,13 +1,25 @@
 @use "../abstracts/variables" as *;
 @use "../base/typography";
+@use "../abstracts/mixins" as *;
 
 .hero {
   background-image: url("../../../assets/images/hero-bio.jpg");
+  background-position: center bottom -0.25rem;
+  background-repeat: no-repeat;
   background-size: cover;
   color: $white;
   padding: 4rem 0;
   position: relative;
   z-index: -2;
+
+  @include medium {
+    padding: 9rem 0;
+  }
+
+  @include large {
+    background-position: center top;
+    padding: 240px 0 280px;
+  }
 
   &::after {
     background-color: rgba($bandsite-black, 50%);
@@ -20,7 +32,7 @@
   }
 
   &__heading {
-    @extend .section-header;
+    @extend .page-header;
     font-weight: 600;
   }
 }

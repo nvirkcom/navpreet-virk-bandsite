@@ -1,16 +1,44 @@
 @use "../abstracts/variables" as *;
 @use "../base/typography";
+@use "../abstracts/mixins" as *;
 
 .gallery {
   background-color: $alabaster;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
+
+  @include medium {
+    padding-bottom: 2.5rem;
+  }
 
   &__heading {
     @extend .section-header;
     font-weight: 600;
   }
 
-  &__image {
-    margin-top: 0.5rem;
+  &__image-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    @include medium {
+      gap: 1.5rem;
+    }
+
+    &-item {
+      @include medium {
+        width: calc((100% - 3rem) / 3);
+      }
+
+      @include large {
+        cursor: pointer;
+        filter: grayscale(100%);
+        transition: 250ms;
+
+        &:hover {
+          filter: grayscale(0%);
+          scale: 105%;
+        }
+      }
+    }
   }
 }

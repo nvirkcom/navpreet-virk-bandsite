@@ -1,5 +1,6 @@
 @use "../abstracts/variables" as *;
 @use "../base/typography";
+@use "../abstracts/mixins" as *;
 
 .footer {
   @extend .footer-copy;
@@ -7,27 +8,75 @@
   color: $white;
   padding-bottom: 1rem;
 
+  @include medium {
+    padding-bottom: 2.5rem;
+  }
+
+  &__row {
+    @include medium {
+      align-items: baseline;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include large {
+      justify-content: start;
+    }
+
+    &-item {
+      @include medium {
+        width: 33.33%;
+      }
+
+      @include large {
+        width: 261px;
+      }
+    }
+
+    &--address {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+
+      @include medium {
+        flex-direction: row;
+        gap: 0;
+      }
+    }
+  }
+
   &__heading {
     @extend .section-header;
     font-weight: 600;
+
+    @include medium {
+      padding-bottom: 0;
+    }
   }
 
   &__icons {
     display: flex;
     gap: 2rem;
+
+    @include medium {
+      top: -0.5rem;
+      position: relative;
+    }
   }
 
   &__address {
     font-style: normal;
-    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include medium {
+      gap: 1.5rem;
+    }
 
     &-name {
       font-weight: 600;
-    }
-
-    &-text,
-    &-email {
-      margin-top: 1rem;
     }
 
     &-email {
@@ -40,11 +89,36 @@
     margin-top: 4rem;
     max-height: 1.25rem;
     max-width: 7.5rem;
+
+    &-top {
+      display: none;
+
+      @include medium {
+        display: block;
+        top: -0.5rem;
+        text-align: right;
+        position: relative;
+      }
+
+      @include large {
+        flex-grow: 1;
+      }
+    }
+
+    &-bottom {
+      @include medium {
+        display: none;
+      }
+    }
   }
 
   &__text {
     @extend .label;
     font-weight: 400;
     margin-top: 0.5rem;
+
+    @include medium {
+      margin-top: 3.5rem;
+    }
   }
 }
