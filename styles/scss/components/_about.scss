@@ -13,7 +13,6 @@
   // About > Heading
   &__heading {
     @extend .section-header;
-    color: $bandsite-black;
     font-weight: 600;
 
     @include medium {
@@ -35,7 +34,6 @@
   // About > Quote
   &__quote {
     @extend .sub-header;
-    color: $bandsite-black;
 
     @include large {
       padding-top: 1.5rem;
@@ -55,14 +53,20 @@
     }
 
     &-footer {
-      @extend .body-copy;
-      font-weight: 700;
+      font-weight: 600;
+
+      @include medium {
+        font-size: 1.0625rem;
+        font-weight: 600;
+        margin-top: 0.5rem;
+      }
     }
   }
 
   // About > Sub Heading
   &__sub-heading {
     @extend .sub-header;
+    color: $bandsite-darkblack;
     margin-top: 1.5rem;
 
     @include medium {
@@ -72,8 +76,12 @@
 
   // About > Text Container
   &__text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     @include medium {
-      display: flex;
+      flex-direction: row;
       gap: 1.5rem;
     }
 

@@ -9,6 +9,11 @@
   max-height: 1.25rem;
   max-width: 7.5rem;
 }
+@media (min-width: 48rem) {
+  .logo, .header__logo, .footer__logo {
+    display: block;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -54,6 +59,7 @@ ul {
   src: url("../../../assets/fonts/avenir-next-lt-pro-bold.woff") format("woff"), url("../../../assets/fonts/avenir-next-lt-pro-bold.woff2") format("woff2");
 }
 body {
+  color: #323232;
   font-family: "Avenir Next LT Pro", sans-serif;
 }
 
@@ -103,7 +109,7 @@ body {
   }
 }
 
-.body-copy, .about__quote-footer, .about__text-container-text, .header__nav-link, body,
+.body-copy, .about__text-container-text, .header__nav-link, body,
 .footer-copy,
 .footer {
   font-size: 0.8125rem;
@@ -111,7 +117,7 @@ body {
   line-height: 1.125rem;
 }
 @media (min-width: 48rem) {
-  .body-copy, .about__quote-footer, .about__text-container-text, .header__nav-link, body,
+  .body-copy, .about__text-container-text, .header__nav-link, body,
   .footer-copy,
   .footer {
     font-size: 0.875rem;
@@ -119,7 +125,7 @@ body {
 }
 
 @media (min-width: 48rem) {
-  .body-copy, .about__quote-footer, .about__text-container-text, .header__nav-link, body {
+  .body-copy, .about__text-container-text, .header__nav-link, body {
     line-height: 1.375rem;
   }
 }
@@ -161,20 +167,10 @@ body {
   .footer__row {
     align-items: baseline;
     display: flex;
-    justify-content: space-between;
-  }
-}
-@media (min-width: 80rem) {
-  .footer__row {
     justify-content: start;
   }
 }
 @media (min-width: 48rem) {
-  .footer__row-item {
-    width: 33.33%;
-  }
-}
-@media (min-width: 80rem) {
   .footer__row-item {
     width: 261px;
   }
@@ -240,14 +236,10 @@ body {
 @media (min-width: 48rem) {
   .footer__logo-top {
     display: block;
+    flex-grow: 1;
     top: -0.5rem;
     text-align: right;
     position: relative;
-  }
-}
-@media (min-width: 80rem) {
-  .footer__logo-top {
-    flex-grow: 1;
   }
 }
 @media (min-width: 48rem) {
@@ -297,7 +289,7 @@ body {
 }
 @media (min-width: 48rem) {
   .header__container {
-    align-items: baseline;
+    align-items: center;
     display: flex;
     gap: 4rem;
     padding: 0 2.25rem;
@@ -310,7 +302,7 @@ body {
 }
 .header__logo {
   box-sizing: content-box;
-  margin: 16px 0 0.25rem;
+  margin: 1rem 0 0.5rem;
 }
 @media (min-width: 48rem) {
   .header__logo {
@@ -350,6 +342,11 @@ body {
     padding: 1.5rem 0 1.25rem;
   }
 }
+@media (min-width: 80rem) {
+  .header__nav-link {
+    padding: 2rem 0;
+  }
+}
 .header__nav-link--active {
   font-weight: 600;
 }
@@ -370,7 +367,6 @@ body {
   }
 }
 .about__heading {
-  color: #323232;
   font-weight: 600;
 }
 @media (min-width: 48rem) {
@@ -387,9 +383,6 @@ body {
   .about__content {
     padding: 0 5rem;
   }
-}
-.about__quote {
-  color: #323232;
 }
 @media (min-width: 80rem) {
   .about__quote {
@@ -408,9 +401,17 @@ body {
   }
 }
 .about__quote-footer {
-  font-weight: 700;
+  font-weight: 600;
+}
+@media (min-width: 48rem) {
+  .about__quote-footer {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
 }
 .about__sub-heading {
+  color: #000000;
   margin-top: 1.5rem;
 }
 @media (min-width: 48rem) {
@@ -418,9 +419,14 @@ body {
     margin-top: 3.5rem;
   }
 }
+.about__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 @media (min-width: 48rem) {
   .about__text-container {
-    display: flex;
+    flex-direction: row;
     gap: 1.5rem;
   }
 }
@@ -470,6 +476,11 @@ body {
 }
 .gallery__image-list-item {
   cursor: pointer;
+  filter: grayscale(100%);
+  transition: 250ms;
+}
+.gallery__image-list-item:hover {
+  filter: grayscale(0%);
 }
 @media (min-width: 48rem) {
   .gallery__image-list-item {
@@ -477,12 +488,7 @@ body {
   }
 }
 @media (min-width: 80rem) {
-  .gallery__image-list-item {
-    filter: grayscale(100%);
-    transition: 250ms;
-  }
   .gallery__image-list-item:hover {
-    filter: grayscale(0%);
     scale: 105%;
   }
 }
@@ -544,8 +550,8 @@ body {
 }
 @media (min-width: 80rem) {
   .hero {
-    background-position: center bottom -160px;
-    padding: 240px 0 280px;
+    background-position: center bottom -10.375rem;
+    padding: 15rem 0 15rem;
   }
 }
 .hero::after {

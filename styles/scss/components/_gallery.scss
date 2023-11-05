@@ -30,17 +30,19 @@
 
     &-item {
       cursor: pointer;
+      filter: grayscale(100%);
+      transition: 250ms;
+
+      &:hover {
+        filter: grayscale(0%);
+      }
 
       @include medium {
         width: calc((100% - 3rem) / 3);
       }
 
       @include large {
-        filter: grayscale(100%);
-        transition: 250ms;
-
         &:hover {
-          filter: grayscale(0%);
           scale: 105%;
         }
       }

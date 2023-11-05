@@ -28,8 +28,9 @@
 
 // Global Font Styling and Classes
 body {
-  font-family: "Avenir Next LT Pro", sans-serif;
   @extend .body-copy;
+  color: $bandsite-black;
+  font-family: "Avenir Next LT Pro", sans-serif;
 }
 
 .page-header,

@@ -14,4 +14,8 @@
   @extend .hover-effect;
   max-height: 1.25rem;
   max-width: 7.5rem;
+
+  @include medium {
+    display: block;
+  }
 }
