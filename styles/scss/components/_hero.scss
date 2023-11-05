@@ -2,6 +2,7 @@
 @use "../base/typography";
 @use "../abstracts/mixins" as *;
 
+// Hero
 .hero {
   background-image: url("../../../assets/images/hero-bio.jpg");
   background-position: center bottom -0.25rem;
@@ -17,10 +18,11 @@
   }
 
   @include large {
-    background-position: center top;
+    background-position: center bottom -160px;
     padding: 240px 0 280px;
   }
 
+  // Hero > Overlay
   &::after {
     background-color: rgba($bandsite-black, 50%);
     content: "";
@@ -31,6 +33,7 @@
     z-index: -1;
   }
 
+  // hero > Heading
   &__heading {
     @extend .page-header;
     font-weight: 600;

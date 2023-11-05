@@ -1,0 +1,22 @@
+@keyframes flyDown {
+  from {
+    opacity: 0%;
+    scale: 0%;
+  }
+  to {
+    opacity: 100%;
+    scale: 100%;
+  }
+}
+
+@keyframes flyUp {
+  from {
+    opacity: 100%;
+    scale: 100%;
+  }
+  to {
+    display: none;
+    opacity: 0%;
+    scale: 0%;
+  }
+}

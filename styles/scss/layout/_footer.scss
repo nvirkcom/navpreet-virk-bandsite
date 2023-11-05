@@ -2,6 +2,7 @@
 @use "../base/typography";
 @use "../abstracts/mixins" as *;
 
+// Footer
 .footer {
   @extend .footer-copy;
   background-color: $bandsite-black;
@@ -12,6 +13,7 @@
     padding-bottom: 2.5rem;
   }
 
+  // Footer > Row
   &__row {
     @include medium {
       align-items: baseline;
@@ -46,6 +48,7 @@
     }
   }
 
+  // Footer > Heading
   &__heading {
     @extend .section-header;
     font-weight: 600;
@@ -55,6 +58,7 @@
     }
   }
 
+  // Footer > Icons
   &__icons {
     display: flex;
     gap: 2rem;
@@ -65,6 +69,7 @@
     }
   }
 
+  // Footer > Address
   &__address {
     font-style: normal;
     display: flex;
@@ -84,6 +89,7 @@
     }
   }
 
+  // Footer Logo
   &__logo {
     display: inline-block;
     margin-top: 4rem;
@@ -112,6 +118,7 @@
     }
   }
 
+  // Footer Text
   &__text {
     @extend .label;
     font-weight: 400;

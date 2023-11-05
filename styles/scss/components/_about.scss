@@ -2,6 +2,7 @@
 @use "../base/typography";
 @use "../abstracts/mixins" as *;
 
+// About
 .about {
   padding-bottom: 1rem;
 
@@ -9,6 +10,7 @@
     padding-bottom: 2rem;
   }
 
+  // About > Heading
   &__heading {
     @extend .section-header;
     font-weight: 600;
@@ -18,17 +20,36 @@
     }
   }
 
+  // About > Content
   &__content {
     @include medium {
       padding: 0 3.5rem;
     }
+
+    @include large {
+      padding: 0 5rem;
+    }
   }
 
+  // About > Quote
   &__quote {
     @extend .sub-header;
+
+    @include large {
+      padding-top: 1.5rem;
+    }
+
     &,
     &-footer {
       margin-top: 1rem;
+    }
+
+    &__line-break {
+      display: none;
+
+      @include large {
+        display: auto;
+      }
     }
 
     &-footer {
@@ -37,6 +58,7 @@
     }
   }
 
+  // About > Sub Heading
   &__sub-heading {
     @extend .sub-header;
     margin-top: 1.5rem;
@@ -46,14 +68,15 @@
     }
   }
 
+  // About > Text Container
   &__text-container {
     @include medium {
       display: flex;
       gap: 1.5rem;
     }
-  }
 
-  &__text {
-    @extend .body-copy;
+    &-text {
+      @extend .body-copy;
+    }
   }
 }

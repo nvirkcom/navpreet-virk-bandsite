@@ -55,8 +55,10 @@
             <!-- Main > About > Quote -->
             <blockquote class="about__quote">
               <p>
-                "We push each other to the best. It's not uncommon for one of us
-                to say 'this needs to be better, back to the drawing board'"
+                “We push each other to the best. It's not uncommon for one
+                <br class="about__quote-linebreak" />
+                of us to say ’this needs to be better, back to the drawing
+                board’“
               </p>
               <footer class="about__quote-footer">
                 - Bryan Teddy, lead vocalist of The Bees Knees
@@ -66,7 +68,7 @@
             <h3 class="about__sub-heading">The Bees Knees</h3>
             <div class="about__text-container">
               <!-- Main > About > Paragraph 1 -->
-              <p class="about__text">
+              <p class="about__text-container-text">
                 The Bees Knees is a pop rock band originating from San
                 Francisco, California. The band consists of lead vocalist Bryan
                 Teddy, guitarist Mack Tolkens, guitarist Andrew Green, bassist
@@ -78,7 +80,7 @@
                 them to sign with Magenta Records.
               </p>
               <!-- Main > About > Paragraph 2 -->
-              <p class="about__text">
+              <p class="about__text-container-text">
                 From there, the band has soared, gaining international
                 recognition and ranking in the top 10 on the Poster Charts. New
                 fans immediately fell in love with the band's original and
@@ -156,6 +158,20 @@
               />
             </li>
           </ul>
+          <div
+            class="gallery__modal gallery__modal--hidden"
+            id="gallery__modal"
+          >
+            <img
+              alt=""
+              class="gallery__modal-image"
+              id="gallery__modal-image"
+              src=""
+            />
+            <button class="gallery__modal-close" id="gallery__modal-close">
+              &#10006;
+            </button>
+          </div>
         </div>
       </section>
     </main>
@@ -264,5 +280,45 @@
         </p>
       </div>
     </footer>
+
+    <!-- Gallery Modal JavaScript -->
+    <script>
+      const galleryImageListItemImages = document.querySelectorAll(
+        ".gallery__image-list-item img"
+      );
+      const galleryModal = document.querySelector("#gallery__modal");
+      const galleryModalImage = document.querySelector("#gallery__modal-image");
+      const galleryModalClose = document.querySelector("#gallery__modal-close");
+
+      galleryImageListItemImages.forEach((img) => {
+        img.addEventListener("click", () => {
+          previewImage(img);
+        });
+      });
+
+      galleryModalClose.addEventListener("click", () => {
+        closeModal();
+      });
+
+      function previewImage(img) {
+        galleryModalImage.alt = img.alt;
+        galleryModalImage.src = img.src.replace(`${location.origin}/`, "");
+
+        galleryModal.classList.remove("gallery__modal--hidden");
+        setTimeout(() => {
+          document.body.style.overflow = "hidden";
+        }, 125);
+      }
+
+      function closeModal() {
+        setTimeout(() => {
+          galleryModalImage.alt = "";
+          galleryModalImage.src = "";
+        }, 250);
+
+        galleryModal.classList.add("gallery__modal--hidden");
+        document.body.style.overflow = "auto";
+      }
+    </script>
   </body>
 </html>
