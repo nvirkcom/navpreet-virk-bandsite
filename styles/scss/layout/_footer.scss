@@ -1,6 +1,7 @@
 @use "../abstracts/variables" as *;
 @use "../base/typography";
 @use "../abstracts/mixins" as *;
+@use "../abstracts/commons";
 
 // Footer
 .footer {
@@ -67,6 +68,10 @@
       top: -0.5rem;
       position: relative;
     }
+
+    &-icon {
+      @extend .hover-effect;
+    }
   }
 
   // Footer > Address
@@ -85,16 +90,21 @@
     }
 
     &-email {
+      @extend .hover-effect;
       display: inline-block;
+
+      &:hover {
+        opacity: 90%;
+        text-decoration: underline;
+      }
     }
   }
 
   // Footer Logo
   &__logo {
+    @extend .logo;
     display: inline-block;
     margin-top: 4rem;
-    max-height: 1.25rem;
-    max-width: 7.5rem;
 
     &-top {
       display: none;

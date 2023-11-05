@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      href="./assets/icons/favicon.svg"
+      rel="shortcut icon"
+      type="image/svg"
+    />
     <link href="./styles/bio.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
@@ -158,10 +163,7 @@
               />
             </li>
           </ul>
-          <div
-            class="gallery__modal gallery__modal--hidden"
-            id="gallery__modal"
-          >
+          <div class="gallery__modal" id="gallery__modal">
             <img
               alt=""
               class="gallery__modal-image"
@@ -186,17 +188,26 @@
           <ul class="footer__icons footer__row-item">
             <li>
               <a href="https:www.instagram.com" target="_blank"
-                ><img alt="Instagram" src="./assets/icons/instagram.svg"
+                ><img
+                  alt="Instagram"
+                  class="footer__icons-icon"
+                  src="./assets/icons/instagram.svg"
               /></a>
             </li>
             <li>
               <a href="https:www.facebook.com" target="_blank"
-                ><img alt="Instagram" src="./assets/icons/facebook.svg"
+                ><img
+                  alt="Instagram"
+                  class="footer__icons-icon"
+                  src="./assets/icons/facebook.svg"
               /></a>
             </li>
             <li>
               <a href="https:www.twitter.com" target="_blank"
-                ><img alt="Instagram" src="./assets/icons/twitter.svg"
+                ><img
+                  alt="Instagram"
+                  class="footer__icons-icon"
+                  src="./assets/icons/twitter.svg"
               /></a>
             </li>
           </ul>
@@ -290,32 +301,38 @@
       const galleryModalImage = document.querySelector("#gallery__modal-image");
       const galleryModalClose = document.querySelector("#gallery__modal-close");
 
+      // Add Click Event Listener to Gallery Images
       galleryImageListItemImages.forEach((img) => {
         img.addEventListener("click", () => {
           previewImage(img);
         });
       });
 
+      // Add Click Event Listener to Modal Close Button
       galleryModalClose.addEventListener("click", () => {
         closeModal();
       });
 
+      // Preview Image Function
       function previewImage(img) {
         galleryModalImage.alt = img.alt;
         galleryModalImage.src = img.src.replace(`${location.origin}/`, "");
 
+        galleryModal.classList.add("gallery__modal--show");
         galleryModal.classList.remove("gallery__modal--hidden");
         setTimeout(() => {
           document.body.style.overflow = "hidden";
         }, 125);
       }
 
+      // Modal Close Function
       function closeModal() {
         setTimeout(() => {
           galleryModalImage.alt = "";
           galleryModalImage.src = "";
         }, 250);
 
+        galleryModal.classList.remove("gallery__modal--show");
         galleryModal.classList.add("gallery__modal--hidden");
         document.body.style.overflow = "auto";
       }

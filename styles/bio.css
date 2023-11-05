@@ -1,3 +1,15 @@
+.hover-effect, .footer__icons-icon, .footer__address-email, .logo, .header__logo, .footer__logo {
+  transition: 125ms;
+}
+.hover-effect:hover, .footer__icons-icon:hover, .footer__address-email:hover, .logo:hover, .header__logo:hover, .footer__logo:hover {
+  opacity: 75%;
+}
+
+.logo, .header__logo, .footer__logo {
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -214,11 +226,13 @@ body {
 .footer__address-email {
   display: inline-block;
 }
+.footer__address-email:hover {
+  opacity: 90%;
+  text-decoration: underline;
+}
 .footer__logo {
   display: inline-block;
   margin-top: 4rem;
-  max-height: 1.25rem;
-  max-width: 7.5rem;
 }
 .footer__logo-top {
   display: none;
@@ -297,8 +311,6 @@ body {
 .header__logo {
   box-sizing: content-box;
   margin: 16px 0 0.25rem;
-  max-height: 1.25rem;
-  max-width: 7.5rem;
 }
 @media (min-width: 48rem) {
   .header__logo {
@@ -358,6 +370,7 @@ body {
   }
 }
 .about__heading {
+  color: #323232;
   font-weight: 600;
 }
 @media (min-width: 48rem) {
@@ -374,6 +387,9 @@ body {
   .about__content {
     padding: 0 5rem;
   }
+}
+.about__quote {
+  color: #323232;
 }
 @media (min-width: 80rem) {
   .about__quote {
@@ -408,7 +424,7 @@ body {
     gap: 1.5rem;
   }
 }
-@keyframes flyDown {
+@keyframes flyIn {
   from {
     opacity: 0%;
     scale: 0%;
@@ -418,8 +434,9 @@ body {
     scale: 100%;
   }
 }
-@keyframes flyUp {
+@keyframes flyOut {
   from {
+    display: flex;
     opacity: 100%;
     scale: 100%;
   }
@@ -471,9 +488,8 @@ body {
 }
 .gallery__modal {
   align-items: center;
-  animation: 250ms flyDown forwards;
   background-color: rgba(0, 0, 0, 0.95);
-  display: flex;
+  display: none;
   height: 100%;
   justify-content: center;
   left: 0;
@@ -482,8 +498,12 @@ body {
   width: 100%;
   z-index: 2;
 }
+.gallery__modal--show {
+  animation: 250ms flyIn forwards;
+  display: flex;
+}
 .gallery__modal--hidden {
-  animation: 250ms flyUp forwards;
+  animation: 250ms flyOut forwards;
 }
 .gallery__modal-image {
   height: auto;

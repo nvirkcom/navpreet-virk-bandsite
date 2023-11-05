@@ -50,9 +50,8 @@
   // Gallery > Modal
   &__modal {
     align-items: center;
-    animation: 250ms flyDown forwards;
     background-color: rgba($bandsite-darkblack, 95%);
-    display: flex;
+    display: none;
     height: 100%;
     justify-content: center;
     left: 0;
@@ -61,8 +60,13 @@
     width: 100%;
     z-index: 2;
 
+    &--show {
+      animation: 250ms flyIn forwards;
+      display: flex;
+    }
+
     &--hidden {
-      animation: 250ms flyUp forwards;
+      animation: 250ms flyOut forwards;
     }
 
     &-image {

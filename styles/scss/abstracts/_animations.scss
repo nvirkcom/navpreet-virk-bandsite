@@ -1,4 +1,5 @@
-@keyframes flyDown {
+// Gallery Modal Animations
+@keyframes flyIn {
   from {
     opacity: 0%;
     scale: 0%;
@@ -9,8 +10,9 @@
   }
 }
 
-@keyframes flyUp {
+@keyframes flyOut {
   from {
+    display: flex;
     opacity: 100%;
     scale: 100%;
   }

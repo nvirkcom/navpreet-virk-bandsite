@@ -1,0 +1,17 @@
+@use "./mixins" as *;
+
+// Hover Effect
+.hover-effect {
+  transition: 125ms;
+
+  &:hover {
+    opacity: 75%;
+  }
+}
+
+// Logo
+.logo {
+  @extend .hover-effect;
+  max-height: 1.25rem;
+  max-width: 7.5rem;
+}

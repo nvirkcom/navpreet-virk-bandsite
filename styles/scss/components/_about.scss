@@ -13,6 +13,7 @@
   // About > Heading
   &__heading {
     @extend .section-header;
+    color: $bandsite-black;
     font-weight: 600;
 
     @include medium {
@@ -34,6 +35,7 @@
   // About > Quote
   &__quote {
     @extend .sub-header;
+    color: $bandsite-black;
 
     @include large {
       padding-top: 1.5rem;
