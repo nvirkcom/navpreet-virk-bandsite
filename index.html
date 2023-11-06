@@ -318,7 +318,7 @@
       // Preview Image Function
       function previewImage(img) {
         galleryModalImage.alt = img.alt;
-        galleryModalImage.src = img.src.replace(`${location.origin}/`, "");
+        galleryModalImage.src = img.src;
 
         galleryModal.classList.add("gallery__modal--show");
         galleryModal.classList.remove("gallery__modal--hidden");
