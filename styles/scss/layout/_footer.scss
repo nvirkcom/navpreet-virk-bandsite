@@ -24,7 +24,7 @@
 
     &-item {
       @include medium {
-        width: 261px;
+        width: 16.3125rem;
       }
     }
 
@@ -124,6 +124,7 @@
     margin-top: 0.5rem;
 
     @include medium {
+      font-size: 0.875rem;
       margin-top: 3.5rem;
     }
   }

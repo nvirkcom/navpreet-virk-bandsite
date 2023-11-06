@@ -172,7 +172,7 @@ body {
 }
 @media (min-width: 48rem) {
   .footer__row-item {
-    width: 261px;
+    width: 16.3125rem;
   }
 }
 .footer__row--address {
@@ -253,6 +253,7 @@ body {
 }
 @media (min-width: 48rem) {
   .footer__text {
+    font-size: 0.875rem;
     margin-top: 3.5rem;
   }
 }
