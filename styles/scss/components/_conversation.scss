@@ -3,14 +3,26 @@
 @use "../abstracts/mixins" as *;
 
 .conversation {
+  @include medium {
+    padding-bottom: 0.5rem;
+  }
+
   &__heading {
     @extend .section-header;
     font-weight: 600;
   }
 
   &__container {
-    display: flex;
-    gap: 1rem;
+    margin: auto;
+    max-width: 41.25rem;
+
+    @include medium {
+      padding: 0 3.5rem;
+    }
+
+    @include large {
+      padding: 0 5rem;
+    }
   }
 
   &__avatar {
@@ -22,11 +34,21 @@
     top: 1.5rem;
     width: 2.25rem;
 
+    @include medium {
+      height: 3rem;
+      width: 3rem;
+    }
+
     &--placeholder {
       background-color: $mercury;
       border-radius: 50%;
       height: 2.25rem;
       min-width: 2.25rem;
+
+      @include medium {
+        height: 3rem;
+        min-width: 3rem;
+      }
     }
   }
 
@@ -63,6 +85,10 @@
       &:focus {
         border-color: $bandsite-black;
       }
+
+      @include medium {
+        padding: 1rem;
+      }
     }
 
     &-textarea {
@@ -73,7 +99,6 @@
     &-button {
       @extend .button;
       background-color: $bandsite-black;
-      border: 0;
       border-radius: 0.25rem;
       color: $white;
       font-size: 0.9375rem;
@@ -81,15 +106,32 @@
       min-width: 9.375rem;
       padding: 0 2rem;
       text-transform: uppercase;
+
+      &:hover {
+        background-color: $bandsite-darkblack;
+      }
+
+      @include medium {
+        align-self: end;
+      }
     }
   }
 
   &__divider {
     border: $mercury 0.0313rem solid;
     margin: 1rem 0;
+
+    @include medium {
+      margin: 1.5rem 0;
+    }
   }
 
   &__comment {
+    &-container {
+      display: flex;
+      gap: 1rem;
+    }
+
     &-content {
       display: flex;
       flex-direction: column;
@@ -102,7 +144,8 @@
       }
 
       &-name {
-        @extend .sub-header;
+        @extend .body-copy;
+        font-weight: 600;
         margin: 0;
       }
 

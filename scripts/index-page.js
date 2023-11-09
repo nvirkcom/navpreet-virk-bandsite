@@ -33,7 +33,7 @@ function addCommentToPage(commentObj) {
 
 function createComment(commentObj) {
   const commentContainer = createEl({
-    className: "conversation__container",
+    className: "conversation__comment-container",
     tagName: "article",
   });
   const avatar = createEl({
