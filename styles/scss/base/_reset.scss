@@ -9,11 +9,21 @@ a {
 
 blockquote,
 body,
+fieldset,
 h1,
 h2,
 p,
 ul {
   margin: 0;
+}
+
+fieldset {
+  border: 0;
+}
+
+fieldset,
+ul {
+  padding: 0;
 }
 
 img {
@@ -23,5 +33,4 @@ img {
 
 ul {
   list-style-type: none;
-  padding: 0;
 }

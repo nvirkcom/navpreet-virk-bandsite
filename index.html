@@ -163,6 +163,7 @@
               />
             </li>
           </ul>
+          <!-- Main > Gallery > Modal -->
           <div class="gallery__modal" id="gallery__modal">
             <img
               alt=""
@@ -174,6 +175,44 @@
               &#10006;
             </button>
           </div>
+        </div>
+      </section>
+      <!-- Main > Conversation -->
+      <section class="conversation">
+        <div class="container">
+          <h2 class="conversation__heading">Join the Conversation</h2>
+          <article class="conversation__container">
+            <img
+              alt="Mohan Muruge"
+              class="conversation__avatar"
+              src="./assets/images/mohan-muruge.jpg"
+            />
+            <form class="conversation__form">
+              <fieldset class="conversation__form-fieldset">
+                <label class="conversation__form-label" for="name">Name</label>
+                <input
+                  class="conversation__form-input"
+                  id="name"
+                  placeholder="Enter your name"
+                  type="text"
+                />
+              </fieldset>
+              <fieldset class="conversation__form-fieldset">
+                <label class="conversation__form-label" for="comment"
+                  >Comment</label
+                >
+                <textarea
+                  class="conversation__form-textarea"
+                  id="comment"
+                  placeholder="Add a new comment"
+                  rows="4"
+                ></textarea>
+              </fieldset>
+              <button class="conversation__form-button">Comment</button>
+            </form>
+          </article>
+          <hr class="conversation__divider" />
+          <div class="conversation__comments" id="comment-list"></div>
         </div>
       </section>
     </main>
@@ -294,50 +333,6 @@
       </div>
     </footer>
 
-    <!-- Gallery Modal JavaScript -->
-    <script>
-      const galleryImageListItemImages = document.querySelectorAll(
-        ".gallery__image-list-item img"
-      );
-      const galleryModal = document.querySelector("#gallery__modal");
-      const galleryModalImage = document.querySelector("#gallery__modal-image");
-      const galleryModalClose = document.querySelector("#gallery__modal-close");
-
-      // Add Click Event Listener to Gallery Images
-      galleryImageListItemImages.forEach((img) => {
-        img.addEventListener("click", () => {
-          previewImage(img);
-        });
-      });
-
-      // Add Click Event Listener to Modal Close Button
-      galleryModalClose.addEventListener("click", () => {
-        closeModal();
-      });
-
-      // Preview Image Function
-      function previewImage(img) {
-        galleryModalImage.alt = img.alt;
-        galleryModalImage.src = img.src;
-
-        galleryModal.classList.add("gallery__modal--show");
-        galleryModal.classList.remove("gallery__modal--hidden");
-        setTimeout(() => {
-          document.body.style.overflow = "hidden";
-        }, 125);
-      }
-
-      // Modal Close Function
-      function closeModal() {
-        setTimeout(() => {
-          galleryModalImage.alt = "";
-          galleryModalImage.src = "";
-        }, 250);
-
-        galleryModal.classList.remove("gallery__modal--show");
-        galleryModal.classList.add("gallery__modal--hidden");
-        document.body.style.overflow = "auto";
-      }
-    </script>
+    <script src="./scripts/index-page.js"></script>
   </body>
 </html>
