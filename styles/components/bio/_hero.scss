@@ -1,6 +1,6 @@
-@use "../abstracts/variables" as *;
-@use "../base/typography";
-@use "../abstracts/mixins" as *;
+@use "../../partials/mixins" as *;
+@use "../../partials/typography";
+@use "../../partials/variables" as *;
 
 // Hero
 .hero {
@@ -22,7 +22,7 @@
     padding: 15rem 0 15rem;
   }
 
-  // Hero > Overlay
+  // Overlay
   &::after {
     background-color: rgba($bandsite-black, 50%);
     content: "";
@@ -33,7 +33,7 @@
     z-index: -1;
   }
 
-  // hero > Heading
+  // Heading
   &__heading {
     @extend .page-header;
     font-weight: 600;

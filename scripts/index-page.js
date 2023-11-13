@@ -1,124 +1,143 @@
-// Comments
-const comments = [
-  {
-    author: "Connor Walton",
-    date: "02/17/2021",
-    text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    author: "Emilie Beach",
-    date: "01/09/2021",
-    text: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    author: "Miles Acosta",
-    date: "12/20/2020",
-    text: "I can t stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough.",
-  },
-];
+class Comment {
+  constructor(author, date, text) {
+    this.author = author;
+    this.date = date;
+    this.text = text;
+  }
 
-const commentList = document.querySelector("#comment-list");
+  getAuthor() {
+    return this.author;
+  }
 
-comments.forEach((comment) => addCommentToPage(comment));
+  getDate() {
+    return this.date;
+  }
 
-function addCommentToPage(commentObj) {
-  const comment = createComment(commentObj);
-  const divider = createEl({
-    className: "conversation__divider",
-    tagName: "hr",
-  });
-  commentList.append(comment);
-  commentList.append(divider);
+  getText() {
+    return this.text;
+  }
 }
 
-function createComment(commentObj) {
-  const commentContainer = createEl({
-    className: "conversation__comment-container",
-    tagName: "article",
-  });
-  const avatar = createEl({
-    className: "conversation__avatar--placeholder",
-    tagName: "div",
-  });
-  commentContainer.append(avatar);
-  const comment = createEl({
-    className: "conversation__comment-content",
-    tagName: "div",
-  });
-  commentContainer.append(comment);
-  const row = createEl({
-    className: "conversation__comment-content-row",
-    tagName: "div",
-  });
-  comment.append(row);
-  const author = createEl({
-    className: "conversation__comment-content-name",
-    tagName: "h3",
-    text: commentObj.author,
-  });
-  row.append(author);
-  const date = createEl({
-    className: "conversation__comment-content-date",
-    tagName: "p",
-    text: commentObj.date,
-  });
-  row.append(date);
-  const text = createEl({
-    tagName: "p",
-    text: commentObj.text,
-  });
-  comment.append(text);
+function addFakeComments() {
+  const fakeComments = [
+    new Comment(
+      "Connor Walton",
+      "02/17/2021",
+      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic deserves reverence. Let us appreciate this for what it is and what it contains."
+    ),
 
-  return commentContainer;
+    new Comment(
+      "Emilie Beach",
+      "01/09/2021",
+      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
+    ),
+
+    new Comment(
+      "Miles Acosta",
+      "12/20/2020",
+      "I can t stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough."
+    ),
+  ];
+  const commentList = document.getElementById("comment-list");
+
+  fakeComments.forEach((comment) => {
+    commentList.append(getCommentHTML(comment, true));
+  });
+}
+addFakeComments();
+
+function getCommentHTML(comment, fakeComment) {
+  const commentContainerEl = document.createElement("article");
+  commentContainerEl.classList.add("comment__container");
+
+  if (fakeComment) {
+    const avatarPlaceholderEl = document.createElement("div");
+    avatarPlaceholderEl.classList.add("avatar");
+    avatarPlaceholderEl.classList.add("avatar--placeholder");
+    commentContainerEl.append(avatarPlaceholderEl);
+  } else {
+    const avatarEl = document.createElement("img");
+    avatarEl.alt = "Mohan Muruge face profile";
+    avatarEl.src = "./assets/images/mohan-muruge.jpg";
+    avatarEl.classList.add("avatar");
+    commentContainerEl.append(avatarEl);
+  }
+
+  const commentContentEl = document.createElement("div");
+  commentContentEl.classList.add("comment__content");
+  commentContainerEl.append(commentContentEl);
+
+  const commentRowEl = document.createElement("div");
+  commentRowEl.classList.add("comment__row");
+  commentContentEl.append(commentRowEl);
+
+  const commentAuthorEl = document.createElement("h3");
+  commentAuthorEl.classList.add("comment__author");
+  commentAuthorEl.textContent = comment.getAuthor();
+  commentRowEl.append(commentAuthorEl);
+
+  const commentDateEl = document.createElement("p");
+  commentDateEl.classList.add("comment__date");
+  if (fakeComment) {
+    commentDateEl.textContent = comment.getDate();
+  } else {
+    const date = new Date(comment.getDate());
+    commentDateEl.textContent = moment(date).fromNow();
+  }
+  commentRowEl.append(commentDateEl);
+
+  const commentTextEl = document.createElement("p");
+  commentTextEl.textContent = comment.getText();
+  commentContentEl.append(commentTextEl);
+
+  return commentContainerEl;
 }
 
-function createEl({ className, tagName, text }) {
-  const el = document.createElement(tagName);
-  text ? (el.textContent = text) : null;
-  className ? el.classList.add(className) : null;
-  return el;
-}
+let comments = [];
 
-// Gallery Modal
-const galleryImageListItemImages = document.querySelectorAll(
-  ".gallery__image-list-item img"
-);
-const galleryModal = document.querySelector("#gallery__modal");
-const galleryModalImage = document.querySelector("#gallery__modal-image");
-const galleryModalClose = document.querySelector("#gallery__modal-close");
-
-// Add Click Event Listener to Gallery Images
-galleryImageListItemImages.forEach((img) => {
-  img.addEventListener("click", () => {
-    previewImage(img);
-  });
+document.getElementById("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (isValidForm(e.target)) {
+    const newComment = new Comment(
+      e.target.author.value,
+      Date.now(),
+      e.target.comment.value
+    );
+    if (comments.length === 0) {
+      setInterval(() => {
+        addCommentsToHTML();
+      }, 1000);
+    }
+    comments.push(newComment);
+    addCommentsToHTML();
+    e.target.reset();
+  }
 });
 
-// Add Click Event Listener to Modal Close Button
-galleryModalClose.addEventListener("click", () => {
-  closeModal();
-});
-
-// Preview Image Function
-function previewImage(img) {
-  galleryModalImage.alt = img.alt;
-  galleryModalImage.src = img.src;
-
-  galleryModal.classList.add("gallery__modal--show");
-  galleryModal.classList.remove("gallery__modal--hidden");
-  setTimeout(() => {
-    document.body.style.overflow = "hidden";
-  }, 125);
+function addCommentsToHTML(newComment) {
+  const commentList = document.getElementById("comment-list");
+  commentList.innerHTML = "";
+  comments.forEach((comment) => {
+    commentList.prepend(getCommentHTML(comment));
+  });
 }
 
-// Modal Close Function
-function closeModal() {
-  setTimeout(() => {
-    galleryModalImage.alt = "";
-    galleryModalImage.src = "";
-  }, 250);
+function isValidForm(form) {
+  let isValid = true;
 
-  galleryModal.classList.remove("gallery__modal--show");
-  galleryModal.classList.add("gallery__modal--hidden");
-  document.body.style.overflow = "auto";
+  if (form.author.value == "") {
+    form.author.classList.add("form__input--error");
+    isValid = false;
+  } else {
+    form.author.classList.remove("form__input--error");
+  }
+
+  if (form.comment.value == "") {
+    form.comment.classList.add("form__input--error");
+    isValid = false;
+  } else {
+    form.comment.classList.remove("form__input--error");
+  }
+
+  return isValid;
 }

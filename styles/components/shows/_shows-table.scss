@@ -1,0 +1,146 @@
+@use "../../abstracts/variables" as *;
+@use "../../base/typography";
+@use "../../abstracts/mixins" as *;
+@use "../../layout/grid";
+
+.shows {
+  @include medium {
+    padding-bottom: 1rem;
+  }
+
+  @include large {
+    align-items: start;
+    display: flex;
+    margin: auto;
+    max-width: 63.75rem;
+  }
+
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+  }
+}
+
+.shows-table {
+  border-collapse: collapse;
+  padding: 0 1rem;
+  width: calc(100% - 5rem);
+
+  @include medium {
+    margin: 0 2.25rem;
+  }
+
+  @include large {
+    flex-grow: 1;
+    margin: auto;
+    max-width: 63.75rem;
+    width: 63.75rem;
+  }
+
+  &__head {
+    display: none;
+
+    @include medium {
+      display: table-row-group;
+    }
+  }
+
+  &__heading {
+    @extend .label;
+    color: $silver;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+
+    @include medium {
+      display: table-row;
+    }
+  }
+
+  &__data {
+    @include medium {
+      border-bottom: $mercury 1px solid;
+      padding: 1rem 0;
+    }
+
+    &--button {
+      text-align: right;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &::before {
+      @extend .label;
+      color: $silver;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @include medium {
+        display: none;
+      }
+    }
+
+    &--date {
+      font-weight: 600;
+
+      &::before {
+        content: "Date";
+      }
+    }
+
+    &--venue {
+      &::before {
+        content: "Venue";
+      }
+    }
+
+    &--location {
+      &::before {
+        content: "Location";
+      }
+    }
+  }
+
+  &__button {
+    @extend .button;
+    background-color: $bandsite-black;
+    border-radius: 0.25rem;
+    color: $white;
+    font-size: 0.9375rem;
+    height: 2.5rem;
+    margin-top: 0.5rem;
+    min-width: 9.375rem;
+    padding: 0 2rem;
+    text-transform: uppercase;
+    width: 100%;
+
+    &:hover {
+      background-color: $bandsite-darkblack;
+    }
+
+    @include medium {
+      margin-top: 0;
+      width: auto;
+    }
+  }
+}
+
+.divider {
+  border: $mercury 0.0313rem solid;
+  margin: 1rem 0;
+
+  @include medium {
+    display: none;
+  }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="../assets/icons/favicon.svg"
+      rel="shortcut icon"
+      type="image/svg"
+    />
+    <link href="../styles/shows.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta content="initial-scale=1.0, width=device-width" name="viewport" />
+    <title>Shows - BandSite</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header__container">
+        <!-- Header > Logo -->
+        <h1>
+          <span class="hidden-text">BandSite</span>
+          <a href="../index.html"
+            ><img
+              alt="BandSite"
+              class="header__logo"
+              src="../assets/logos/bandsite.svg"
+          /></a>
+        </h1>
+        <!-- Header > Nav -->
+        <nav>
+          <ul class="header__nav-list">
+            <li class="header__nav-item">
+              <a class="header__nav-link" href="../index.html">Biography</a>
+            </li>
+            <li class="header__nav-item">
+              <a
+                class="header__nav-link header__nav-link--active"
+                href="./shows.html"
+                >Shows</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Main -->
+    <main>
+      <section class="shows">
+        <div class="container">
+          <h2 class="shows__heading">Shows</h2>
+        </div>
+        <table class="shows-table">
+          <thead class="shows-table__head">
+            <tr>
+              <th class="shows-table__heading">Date</th>
+              <th class="shows-table__heading">Venue</th>
+              <th class="shows-table__heading">Location</th>
+            </tr>
+          </thead>
+          <tbody class="shows-table__body" id="shows-table-body"></tbody>
+        </table>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <!-- Footer > Row 1 -->
+        <div class="footer__row">
+          <!-- Footer > Row 1 > Heading -->
+          <h2 class="footer__heading footer__row-item">Get in Touch</h2>
+          <!-- Footer > Row 1 > Icons -->
+          <ul class="footer__icons footer__row-item">
+            <li>
+              <a href="https:www.instagram.com" target="_blank"
+                ><img
+                  alt="Instagram"
+                  class="footer__icons-icon"
+                  src="../assets/icons/instagram.svg"
+              /></a>
+            </li>
+            <li>
+              <a href="https:www.facebook.com" target="_blank"
+                ><img
+                  alt="Instagram"
+                  class="footer__icons-icon"
+                  src="../assets/icons/facebook.svg"
+              /></a>
+            </li>
+            <li>
+              <a href="https:www.twitter.com" target="_blank"
+                ><img
+                  alt="Instagram"
+                  class="footer__icons-icon"
+                  src="../assets/icons/twitter.svg"
+              /></a>
+            </li>
+          </ul>
+          <!-- Footer > Row 1 > Logo -->
+          <h2 class="footer__logo-top footer__row-item">
+            <span class="hidden-text">BandSite</span>
+            <a href="../index.html"
+              ><img
+                alt="BandSite"
+                class="footer__logo"
+                src="../assets/logos/bandsite.svg"
+            /></a>
+          </h2>
+        </div>
+        <!-- Footer > Row 2 -->
+        <div class="footer__row footer__row--address">
+          <!-- Footer > Row 2 > Address 1 -->
+          <address class="footer__address footer__row-item">
+            <div class="footer__address-name">
+              Cam Adams
+              <br />
+              The Bees Knees Management
+            </div>
+            <div>
+              503 Broadway Penthouse,
+              <br />
+              New York, NY 10012, USA
+            </div>
+            <a class="footer__address-email" href="mailto:info@thebeesknees.com"
+              >info@thebeesknees.com</a
+            >
+          </address>
+          <!-- Footer > Row 2 > Address 2 -->
+          <address class="footer__address footer__row-item">
+            <div class="footer__address-name">
+              Pearl Gregg
+              <br />
+              Limiless Artist Group
+            </div>
+            <div>
+              Booking Agent for
+              <br />
+              US / South America / Japan
+            </div>
+            <a
+              class="footer__address-email"
+              href="mailto:pearl.gregg@limitlessag.com"
+              >pearl.gregg@limitlessag.com</a
+            >
+          </address>
+          <!-- Footer > Row 2 > Address 3 -->
+          <address class="footer__address footer__row-item">
+            <div class="footer__address-name">
+              Carson Whyte
+              <br />
+              ARCH Entertainment
+            </div>
+            <div>
+              Booking Agent for
+              <br />
+              UK / EU / AU
+            </div>
+            <a
+              class="footer__address-email"
+              href="mailto:cwhyte@archentertainment.com"
+              >cwhyte@archentertainment.com</a
+            >
+          </address>
+        </div>
+        <!-- Footer > Logo -->
+        <h2 class="footer__logo-bottom">
+          <span class="hidden-text">BandSite</span>
+          <a href="../index.html"
+            ><img
+              alt="BandSite"
+              class="footer__logo"
+              src="../assets/logos/bandsite.svg"
+          /></a>
+        </h2>
+        <!-- Footer > Copyright Text -->
+        <p class="footer__text">
+          Copyright The Bees Knees &copy; 2021 All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+    <script src="../scripts/common/common.js"></script>
+    <script src="../scripts/shows/build-shows-page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/shared";
+@use "../../partials/typography";
+@use "../../partials/variables" as *;
+
+// About
+.about {
+  @extend .container;
+  padding-bottom: 1rem;
+
+  @include medium {
+    padding-bottom: 2rem;
+  }
+
+  // Heading
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+
+    @include medium {
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  // Content
+  &__content {
+    @include medium {
+      padding: 0 3.5rem;
+    }
+
+    @include large {
+      padding: 0 5rem;
+    }
+  }
+
+  // Sub Heading
+  &__sub-heading {
+    @extend .sub-header;
+    color: $bandsite-darkblack;
+    margin-top: 1.5rem;
+
+    @include medium {
+      margin-top: 3.5rem;
+    }
+  }
+}
+
+// Quote
+.quote {
+  @extend .sub-header;
+
+  @include large {
+    padding-top: 1.5rem;
+  }
+
+  &,
+  &__footer {
+    margin-top: 1rem;
+  }
+
+  &__line-break {
+    display: none;
+
+    @include large {
+      display: auto;
+    }
+  }
+
+  &__footer {
+    font-weight: 600;
+
+    @include medium {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+// Description
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include medium {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  &__text {
+    @extend .body-copy;
+  }
+}

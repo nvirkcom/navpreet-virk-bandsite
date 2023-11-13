@@ -14,262 +14,180 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <div class="container header__container">
-        <!-- Header > Logo -->
+      <!-- Nav -->
+      <nav class="nav">
+        <!-- Logo -->
         <h1>
           <span class="hidden-text">BandSite</span>
           <a href="./index.html"
-            ><img
-              alt="BandSite"
-              class="header__logo"
-              src="./assets/logos/bandsite.svg"
+            ><img alt="BandSite" class="logo" src="./assets/logos/bandsite.svg"
           /></a>
         </h1>
-        <!-- Header > Nav -->
-        <nav>
-          <ul class="header__nav-list">
-            <li class="header__nav-item">
-              <a class="header__nav-link header__nav-link--active" href="#"
-                >Biography</a
-              >
-            </li>
-            <li class="header__nav-item">
-              <a class="header__nav-link" href="#">Shows</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <!-- List -->
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link nav__link--active" href="#">Biography</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="./pages/shows.html">Shows</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <!-- Main -->
     <main>
-      <!-- Main > Hero -->
+      <!-- Hero -->
       <section class="hero">
         <div class="container">
-          <!-- Main > Hero > Heading -->
+          <!-- Hero Heading -->
           <h2 class="hero__heading">The Bees Knees</h2>
         </div>
       </section>
-      <!-- Main > About -->
+      <!-- About -->
       <section class="about">
-        <div class="container">
-          <!-- Main > About > Heading -->
-          <h2 class="about__heading">About The Musicians</h2>
-          <div class="about__content">
-            <!-- Main > About > Image -->
-            <img alt="Hero Bio" src="./assets/images/band.jpg" />
-            <!-- Main > About > Quote -->
-            <blockquote class="about__quote">
-              <p>
-                “We push each other to the best. It's not uncommon for one
-                <br class="about__quote-linebreak" />
-                of us to say ’this needs to be better, back to the drawing
-                board’“
-              </p>
-              <footer class="about__quote-footer">
-                - Bryan Teddy, lead vocalist of The Bees Knees
-              </footer>
-            </blockquote>
-            <!-- Main > About > Sub Heading -->
-            <h3 class="about__sub-heading">The Bees Knees</h3>
-            <div class="about__text-container">
-              <!-- Main > About > Paragraph 1 -->
-              <p class="about__text-container-text">
-                The Bees Knees is a pop rock band originating from San
-                Francisco, California. The band consists of lead vocalist Bryan
-                Teddy, guitarist Mack Tolkens, guitarist Andrew Green, bassist
-                Kent Zulkee and drummer Freddie Fischer. The band achieved its
-                first commercial success as an unsigned act, drawing attention
-                from manager Cam Adams. Having worked with other popular acts
-                (The Elephant In The Room, One Trick Pony, The Cat's Meow),
-                Adams was confident the band could succeed even further, pushing
-                them to sign with Magenta Records.
-              </p>
-              <!-- Main > About > Paragraph 2 -->
-              <p class="about__text-container-text">
-                From there, the band has soared, gaining international
-                recognition and ranking in the top 10 on the Poster Charts. New
-                fans immediately fell in love with the band's original and
-                organic attitude, solidifying their place as one of the hottest
-                and fastest up and coming acts of this century. Fans
-                affectionately refer to themselves as “The Hive” and are drawn
-                to their candid and authentic performances on stage. Looking
-                forward to touring in the future, The Bees Knees are currently
-                recording their second studio album, looking to be released in
-                late 2021
-              </p>
-            </div>
+        <!-- Heading -->
+        <h2 class="about__heading">About The Musicians</h2>
+        <div class="about__content">
+          <!-- Image -->
+          <img alt="Hero Bio" src="./assets/images/band.jpg" />
+          <!-- Quote -->
+          <blockquote class="quote">
+            <p>
+              “We push each other to the best. It's not uncommon for one
+              <br class="quote__line-break" />
+              of us to say ’this needs to be better, back to the drawing board’“
+            </p>
+            <footer class="quote__footer">
+              - Bryan Teddy, lead vocalist of The Bees Knees
+            </footer>
+          </blockquote>
+          <!-- Sub Heading -->
+          <h3 class="about__sub-heading">The Bees Knees</h3>
+          <!-- Paragraphs -->
+          <div class="description">
+            <p class="description__text">
+              The Bees Knees is a pop rock band originating from San Francisco,
+              California. The band consists of lead vocalist Bryan Teddy,
+              guitarist Mack Tolkens, guitarist Andrew Green, bassist Kent
+              Zulkee and drummer Freddie Fischer. The band achieved its first
+              commercial success as an unsigned act, drawing attention from
+              manager Cam Adams. Having worked with other popular acts (The
+              Elephant In The Room, One Trick Pony, The Cat's Meow), Adams was
+              confident the band could succeed even further, pushing them to
+              sign with Magenta Records.
+            </p>
+            <p class="description__text">
+              From there, the band has soared, gaining international recognition
+              and ranking in the top 10 on the Poster Charts. New fans
+              immediately fell in love with the band's original and organic
+              attitude, solidifying their place as one of the hottest and
+              fastest up and coming acts of this century. Fans affectionately
+              refer to themselves as “The Hive” and are drawn to their candid
+              and authentic performances on stage. Looking forward to touring in
+              the future, The Bees Knees are currently recording their second
+              studio album, looking to be released in late 2021
+            </p>
           </div>
         </div>
       </section>
-      <!-- Main > Gallery -->
+      <!-- Gallery -->
       <section class="gallery">
         <div class="container">
-          <!-- Main > Gallery > Heading -->
+          <!-- Heading -->
           <h2 class="gallery__heading">Photo Gallery</h2>
-          <!-- Main > Gallery > Image List -->
-          <ul class="gallery__image-list">
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 1"
-                src="./assets/images/photo-gallery-1.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 2"
-                src="./assets/images/photo-gallery-2.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 3"
-                src="./assets/images/photo-gallery-3.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 4"
-                src="./assets/images/photo-gallery-4.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 5"
-                src="./assets/images/photo-gallery-5.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 6"
-                src="./assets/images/photo-gallery-6.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 7"
-                src="./assets/images/photo-gallery-7.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 8"
-                src="./assets/images/photo-gallery-8.jpg"
-              />
-            </li>
-            <li class="gallery__image-list-item">
-              <img
-                alt="Photo Gallery 9"
-                src="./assets/images/photo-gallery-9.jpg"
-              />
-            </li>
-          </ul>
-          <!-- Main > Gallery > Modal -->
-          <div class="gallery__modal" id="gallery__modal">
-            <img
-              alt=""
-              class="gallery__modal-image"
-              id="gallery__modal-image"
-              src=""
-            />
-            <button class="gallery__modal-close" id="gallery__modal-close">
+          <!-- Image List -->
+          <ul class="image-list" id="image-list"></ul>
+          <!-- Modal -->
+          <div class="modal" id="modal">
+            <img alt="" class="modal__image" id="modal-image" src="" />
+            <button class="modal__close-button" id="modal-close-button">
               &#10006;
             </button>
           </div>
         </div>
       </section>
-      <!-- Main > Conversation -->
+      <!-- Conversation -->
       <section class="conversation">
-        <div class="container">
-          <h2 class="conversation__heading">Join the Conversation</h2>
-          <div class="conversation__container">
-            <div class="conversation__comment-container">
-              <img
-                alt="Mohan Muruge"
-                class="conversation__avatar"
-                src="./assets/images/mohan-muruge.jpg"
-              />
-              <form class="conversation__form">
-                <fieldset class="conversation__form-fieldset">
-                  <label class="conversation__form-label" for="name"
-                    >Name</label
-                  >
-                  <input
-                    class="conversation__form-input"
-                    id="name"
-                    placeholder="Enter your name"
-                    type="text"
-                  />
-                </fieldset>
-                <fieldset class="conversation__form-fieldset">
-                  <label class="conversation__form-label" for="comment"
-                    >Comment</label
-                  >
-                  <textarea
-                    class="conversation__form-textarea"
-                    id="comment"
-                    placeholder="Add a new comment"
-                    rows="4"
-                  ></textarea>
-                </fieldset>
-                <button class="conversation__form-button">Comment</button>
-              </form>
-            </div>
-            <hr class="conversation__divider" />
-            <div class="conversation__comments" id="comment-list"></div>
+        <h2 class="conversation__heading">Join the Conversation</h2>
+        <div class="conversation__container">
+          <div class="comment__container">
+            <img
+              alt="Mohan Muruge face profile"
+              class="avatar avatar--form"
+              src="./assets/images/mohan-muruge.jpg"
+            />
+            <form class="form" id="form">
+              <fieldset class="form__fieldset">
+                <label class="form__label" for="author">Name</label>
+                <input
+                  class="form__input"
+                  id="author"
+                  name="author"
+                  placeholder="Enter your name"
+                  type="text"
+                />
+              </fieldset>
+              <fieldset class="form__fieldset">
+                <label class="form__label" for="comment">Comment</label>
+                <textarea
+                  class="form__textarea"
+                  id="comment"
+                  name="comment"
+                  placeholder="Add a new comment"
+                  rows="4"
+                ></textarea>
+              </fieldset>
+              <button class="form__button">Comment</button>
+            </form>
           </div>
+          <div id="comment-list"></div>
         </div>
       </section>
     </main>
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <!-- Footer > Row 1 -->
         <div class="footer__row">
-          <!-- Footer > Row 1 > Heading -->
           <h2 class="footer__heading footer__row-item">Get in Touch</h2>
-          <!-- Footer > Row 1 > Icons -->
-          <ul class="footer__icons footer__row-item">
+          <ul class="footer__row-item social-icons">
             <li>
               <a href="https:www.instagram.com" target="_blank"
                 ><img
-                  alt="Instagram"
-                  class="footer__icons-icon"
+                  alt="Instagram icon"
+                  class="social-icons__icon"
                   src="./assets/icons/instagram.svg"
               /></a>
             </li>
             <li>
               <a href="https:www.facebook.com" target="_blank"
                 ><img
-                  alt="Instagram"
-                  class="footer__icons-icon"
+                  alt="Facebook icon"
+                  class="social-icons__icon"
                   src="./assets/icons/facebook.svg"
               /></a>
             </li>
             <li>
               <a href="https:www.twitter.com" target="_blank"
                 ><img
-                  alt="Instagram"
-                  class="footer__icons-icon"
+                  alt="Twitter icon"
+                  class="social-icons__icon"
                   src="./assets/icons/twitter.svg"
               /></a>
             </li>
           </ul>
-          <!-- Footer > Row 1 > Logo -->
-          <h2 class="footer__logo-top footer__row-item">
+          <h2 class="logo--top footer__row-item">
             <span class="hidden-text">BandSite</span>
             <a href="./index.html"
               ><img
-                alt="BandSite"
-                class="footer__logo"
+                alt="BandSite logo"
+                class="logo__image"
                 src="./assets/logos/bandsite.svg"
             /></a>
           </h2>
         </div>
-        <!-- Footer > Row 2 -->
         <div class="footer__row footer__row--address">
-          <!-- Footer > Row 2 > Address 1 -->
-          <address class="footer__address footer__row-item">
-            <div class="footer__address-name">
+          <address class="address footer__row-item">
+            <div class="address__name">
               Cam Adams
               <br />
               The Bees Knees Management
@@ -279,13 +197,12 @@
               <br />
               New York, NY 10012, USA
             </div>
-            <a class="footer__address-email" href="mailto:info@thebeesknees.com"
+            <a class="address__email" href="mailto:info@thebeesknees.com"
               >info@thebeesknees.com</a
             >
           </address>
-          <!-- Footer > Row 2 > Address 2 -->
-          <address class="footer__address footer__row-item">
-            <div class="footer__address-name">
+          <address class="address footer__row-item">
+            <div class="address__name">
               Pearl Gregg
               <br />
               Limiless Artist Group
@@ -295,15 +212,12 @@
               <br />
               US / South America / Japan
             </div>
-            <a
-              class="footer__address-email"
-              href="mailto:pearl.gregg@limitlessag.com"
+            <a class="address__email" href="mailto:pearl.gregg@limitlessag.com"
               >pearl.gregg@limitlessag.com</a
             >
           </address>
-          <!-- Footer > Row 2 > Address 3 -->
-          <address class="footer__address footer__row-item">
-            <div class="footer__address-name">
+          <address class="address footer__row-item">
+            <div class="address__name">
               Carson Whyte
               <br />
               ARCH Entertainment
@@ -313,30 +227,28 @@
               <br />
               UK / EU / AU
             </div>
-            <a
-              class="footer__address-email"
-              href="mailto:cwhyte@archentertainment.com"
+            <a class="address__email" href="mailto:cwhyte@archentertainment.com"
               >cwhyte@archentertainment.com</a
             >
           </address>
         </div>
-        <!-- Footer > Logo -->
-        <h2 class="footer__logo-bottom">
+        <h2 class="logo logo--bottom">
           <span class="hidden-text">BandSite</span>
           <a href="./index.html"
             ><img
               alt="BandSite"
-              class="footer__logo"
+              class="logo__image"
               src="./assets/logos/bandsite.svg"
           /></a>
         </h2>
-        <!-- Footer > Copyright Text -->
-        <p class="footer__text">
+        <p class="footer__copyright">
           Copyright The Bees Knees &copy; 2021 All Rights Reserved
         </p>
       </div>
     </footer>
 
+    <script src="./scripts/bio/gallery.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="./scripts/index-page.js"></script>
   </body>
 </html>

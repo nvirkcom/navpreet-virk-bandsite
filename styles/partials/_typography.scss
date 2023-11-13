@@ -1,6 +1,5 @@
-@use "../abstracts/variables" as *;
-@use "../abstracts/mixins" as *;
-@use "../abstracts/mixins" as *;
+@use "./mixins" as *;
+@use "./variables" as *;
 
 // Font Imports
 @font-face {

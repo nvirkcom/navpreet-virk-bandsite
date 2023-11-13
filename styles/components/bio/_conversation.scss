@@ -1,0 +1,165 @@
+@use "../../partials/shared" as *;
+@use "../../partials/mixins" as *;
+@use "../../partials/typography";
+@use "../../partials/variables" as *;
+
+.conversation {
+  @extend .container;
+
+  @include medium {
+    padding-bottom: 0.5rem;
+  }
+
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+  }
+
+  &__container {
+    margin: auto;
+    max-width: 41.25rem;
+
+    @include medium {
+      padding: 0 3.5rem;
+    }
+
+    @include large {
+      padding: 0 5rem;
+    }
+  }
+}
+
+// Form
+.form {
+  gap: 1rem;
+  width: 100%;
+
+  &,
+  &__fieldset {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__fieldset {
+    gap: 0.25rem;
+  }
+
+  &__label {
+    @extend .label;
+    color: $silver;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  &__input,
+  &__textarea {
+    @extend .body-copy;
+    background-color: $alabaster;
+    border: $mercury 0.0625rem solid;
+    border-radius: 0.25rem;
+    outline: 0;
+    padding: 0.75rem;
+
+    &:focus {
+      border-color: $bandsite-black;
+    }
+
+    &--error {
+      border: #d22d2d 0.0625rem solid;
+    }
+
+    @include medium {
+      padding: 1rem;
+    }
+  }
+
+  &__textarea {
+    font-family: "Avenir Next LT Pro";
+    resize: none;
+  }
+
+  &__button {
+    @extend .button;
+    background-color: $bandsite-black;
+    border-radius: 0.25rem;
+    color: $white;
+    font-size: 0.9375rem;
+    height: 2.5rem;
+    min-width: 9.375rem;
+    padding: 0 2rem;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: $bandsite-darkblack;
+    }
+
+    @include medium {
+      align-self: end;
+    }
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 2.25rem;
+  object-fit: cover;
+  object-position: left;
+  width: 2.25rem;
+
+  @include medium {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  &--form {
+    position: relative;
+    top: 1.5rem;
+  }
+
+  &--placeholder {
+    background-color: $mercury;
+    min-width: 2.25rem;
+
+    @include medium {
+      min-width: 3rem;
+    }
+  }
+}
+
+.comment {
+  &__container {
+    border-bottom: $mercury 0.0625rem solid;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+
+    @include medium {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.25rem;
+  }
+
+  &__row {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__author {
+    @extend .body-copy;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__date {
+    color: $silver;
+  }
+}

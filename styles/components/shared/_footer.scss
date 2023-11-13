@@ -1,0 +1,126 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/shared";
+@use "../../partials/typography";
+@use "../../partials/variables" as *;
+
+.footer {
+  @extend .footer-copy;
+  background-color: $bandsite-black;
+  color: $white;
+  padding-bottom: 1rem;
+
+  @include medium {
+    padding-bottom: 2.5rem;
+  }
+
+  &__row {
+    @include medium {
+      align-items: baseline;
+      display: flex;
+      justify-content: start;
+    }
+
+    &-item {
+      @include medium {
+        width: 16.3125rem;
+      }
+    }
+
+    &--address {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+
+      @include medium {
+        flex-direction: row;
+        gap: 0;
+      }
+    }
+  }
+
+  &__heading {
+    @extend .section-header;
+    font-weight: 600;
+
+    @include medium {
+      padding-bottom: 0;
+    }
+  }
+
+  &__copyright {
+    @extend .label;
+    font-weight: 400;
+    margin-top: 0.5rem;
+
+    @include medium {
+      font-size: 0.875rem;
+      margin-top: 3.5rem;
+    }
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: 2rem;
+
+  @include medium {
+    top: -0.5rem;
+    position: relative;
+  }
+
+  &-icon {
+    @extend .hover-effect;
+  }
+}
+
+.logo {
+  &--top {
+    display: none;
+
+    @include medium {
+      display: block;
+      flex-grow: 1;
+      top: -0.5rem;
+      text-align: right;
+      position: relative;
+    }
+  }
+
+  &--bottom {
+    @include medium {
+      display: none;
+    }
+  }
+
+  &__image {
+    @extend .logo;
+    display: inline-block;
+    margin-top: 4rem;
+  }
+}
+
+.address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @include medium {
+    gap: 1.5rem;
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__email {
+    @extend .hover-effect;
+    display: inline-block;
+
+    &:hover {
+      opacity: 90%;
+      text-decoration: underline;
+    }
+  }
+}
