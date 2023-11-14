@@ -115,15 +115,6 @@
     position: relative;
     top: 1.5rem;
   }
-
-  &--placeholder {
-    background-color: $mercury;
-    min-width: 2.25rem;
-
-    @include medium {
-      min-width: 3rem;
-    }
-  }
 }
 
 .comment {

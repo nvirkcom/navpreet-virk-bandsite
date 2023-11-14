@@ -46,12 +46,9 @@
   min-width: 9.375rem;
   padding: 0 2rem;
   text-transform: uppercase;
+  transition: 250ms;
 
   &:hover {
     background-color: $bandsite-darkblack;
-  }
-
-  @include medium {
-    align-self: end;
   }
 }

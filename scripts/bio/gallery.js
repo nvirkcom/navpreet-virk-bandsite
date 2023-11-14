@@ -1,3 +1,4 @@
+// Images Array
 const images = [
   { alt: "Photo Gallery 1", src: "./assets/images/photo-gallery-1.jpg" },
   { alt: "Photo Gallery 2", src: "./assets/images/photo-gallery-2.jpg" },
@@ -10,6 +11,7 @@ const images = [
   { alt: "Photo Gallery 9", src: "./assets/images/photo-gallery-9.jpg" },
 ];
 
+// Add images to Gallery
 function addImagesToGallery() {
   const imageList = document.getElementById("image-list");
 
@@ -31,9 +33,11 @@ function addImagesToGallery() {
 }
 addImagesToGallery();
 
+// Modal
 const modal = document.getElementById("modal");
 const modalImage = document.getElementById("modal-image");
 
+// Open Modal
 function openModal(image) {
   modalImage.alt = image.alt;
   modalImage.src = image.src;
@@ -45,6 +49,7 @@ function openModal(image) {
   });
 }
 
+// Close Modal
 document.getElementById("modal-close-button").addEventListener("click", () => {
   setTimeout(() => {
     modalImage.alt = "";

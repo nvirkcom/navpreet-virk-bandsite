@@ -41,14 +41,10 @@
   min-width: 9.375rem;
   padding: 0 2rem;
   text-transform: uppercase;
+  transition: 250ms;
 }
 .button:hover, .form__button:hover {
   background-color: #000000;
-}
-@media (min-width: 48rem) {
-  .button, .form__button {
-    align-self: end;
-  }
 }
 
 @font-face {
@@ -337,15 +333,6 @@ body {
 .avatar--form {
   position: relative;
   top: 1.5rem;
-}
-.avatar--placeholder {
-  background-color: #e1e1e1;
-  min-width: 2.25rem;
-}
-@media (min-width: 48rem) {
-  .avatar--placeholder {
-    min-width: 3rem;
-  }
 }
 
 .comment__container {
@@ -661,6 +648,9 @@ body {
     position: relative;
   }
 }
+.logo--bottom {
+  margin-top: 4rem;
+}
 @media (min-width: 48rem) {
   .logo--bottom {
     display: none;
@@ -668,7 +658,6 @@ body {
 }
 .logo__image {
   display: inline-block;
-  margin-top: 4rem;
 }
 
 .address {

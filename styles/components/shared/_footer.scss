@@ -88,6 +88,8 @@
   }
 
   &--bottom {
+    margin-top: 4rem;
+
     @include medium {
       display: none;
     }
@@ -96,7 +98,6 @@
   &__image {
     @extend .logo;
     display: inline-block;
-    margin-top: 4rem;
   }
 }
 
