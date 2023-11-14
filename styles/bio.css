@@ -15,10 +15,10 @@
   }
 }
 
-.hover-effect, .social-icons-icon, .address__email, .logo, .logo__image {
+.hover-effect, .social-icons__icon, .address__email, .logo, .logo__image {
   transition: 125ms;
 }
-.hover-effect:hover, .social-icons-icon:hover, .address__email:hover, .logo:hover, .logo__image:hover {
+.hover-effect:hover, .social-icons__icon:hover, .address__email:hover, .logo:hover, .logo__image:hover {
   opacity: 75%;
 }
 
@@ -466,40 +466,6 @@ body {
   top: 0;
 }
 
-.hero {
-  background-image: url("../assets/images/hero-bio.jpg");
-  background-position: center bottom -0.25rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: #ffffff;
-  padding: 4rem 0;
-  position: relative;
-  z-index: -2;
-}
-@media (min-width: 48rem) {
-  .hero {
-    padding: 9rem 0;
-  }
-}
-@media (min-width: 80rem) {
-  .hero {
-    background-position: center bottom -10.375rem;
-    padding: 15rem 0 15rem;
-  }
-}
-.hero::after {
-  background-color: rgba(50, 50, 50, 0.5);
-  content: "";
-  height: 100%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-}
-.hero__heading {
-  font-weight: 600;
-}
-
 .header {
   background-color: #323232;
   color: #e1e1e1;
@@ -579,6 +545,40 @@ body {
 }
 .nav__link:hover {
   background-color: rgba(175, 175, 175, 0.1);
+}
+
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-position: center bottom -0.25rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  padding: 4rem 0;
+  position: relative;
+  z-index: -2;
+}
+@media (min-width: 48rem) {
+  .hero {
+    padding: 9rem 0;
+  }
+}
+@media (min-width: 80rem) {
+  .hero {
+    background-position: center bottom -10.375rem;
+    padding: 15rem 0 15rem;
+  }
+}
+.hero::after {
+  background-color: rgba(50, 50, 50, 0.5);
+  content: "";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+.hero__heading {
+  font-weight: 600;
 }
 
 .footer {

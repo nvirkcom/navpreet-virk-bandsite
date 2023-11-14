@@ -1,0 +1,85 @@
+// Components
+@use "./components/shared/header";
+@use "./components/shared/hero";
+@use "./components/shared/footer";
+
+// Mixins
+@use "../styles/partials/mixins" as *;
+
+// Partials
+@use "./partials/reset";
+@use "./partials/typography";
+
+// Hero Override
+.hero {
+  background-image: url("../assets/images/hero-shows.jpg");
+  padding: 2rem 0;
+
+  @include medium {
+    background-position: center top -5.625rem;
+    padding: 3.5rem 0;
+  }
+
+  @include large {
+    background-position: center top -8.75rem;
+    padding: 13.125rem 0 15rem;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__sub-heading {
+    @extend .sub-header;
+    margin: 0;
+
+    @include medium {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include medium {
+      gap: 2.5rem;
+    }
+
+    @include large {
+      align-items: center;
+      flex-direction: row;
+      gap: 7.5rem;
+    }
+  }
+
+  &__heading {
+    padding: 0;
+    width: 12.6875rem;
+
+    @include medium {
+      width: 31.625rem;
+    }
+
+    @include large {
+      width: 60%;
+    }
+  }
+
+  &__embed {
+    border: 0;
+    height: 7.25rem;
+    position: relative;
+    width: 100%;
+
+    @include medium {
+      width: 26.25rem;
+    }
+
+    @include large {
+      width: 50%;
+    }
+  }
+}

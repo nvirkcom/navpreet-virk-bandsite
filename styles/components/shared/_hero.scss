@@ -4,23 +4,11 @@
 
 // Hero
 .hero {
-  background-image: url("../assets/images/hero-bio.jpg");
-  background-position: center bottom -0.25rem;
   background-repeat: no-repeat;
   background-size: cover;
   color: $white;
-  padding: 4rem 0;
   position: relative;
-  z-index: -2;
-
-  @include medium {
-    padding: 9rem 0;
-  }
-
-  @include large {
-    background-position: center bottom -10.375rem;
-    padding: 15rem 0 15rem;
-  }
+  z-index: 0;
 
   // Overlay
   &::after {

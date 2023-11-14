@@ -78,12 +78,8 @@ function getCommentHTML(comment, fakeComment) {
 
   const commentDateEl = document.createElement("p");
   commentDateEl.classList.add("comment__date");
-  if (fakeComment) {
-    commentDateEl.textContent = comment.getDate();
-  } else {
-    const date = new Date(comment.getDate());
-    commentDateEl.textContent = moment(date).fromNow();
-  }
+  const date = new Date(comment.getDate());
+  commentDateEl.textContent = moment(date).fromNow();
   commentRowEl.append(commentDateEl);
 
   const commentTextEl = document.createElement("p");

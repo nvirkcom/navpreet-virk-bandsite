@@ -2,9 +2,25 @@
 @use "./components/bio/about";
 @use "./components/bio/conversation";
 @use "./components/bio/gallery";
-@use "./components/bio/hero";
 @use "./components/shared/header";
+@use "./components/shared/hero";
 @use "./components/shared/footer";
 
 // Partials
 @use "./partials/reset";
+
+// Hero Override
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-position: center bottom -0.25rem;
+  padding: 4rem 0;
+
+  @include medium {
+    padding: 9rem 0;
+  }
+
+  @include large {
+    background-position: center bottom -10.375rem;
+    padding: 15rem 0 15rem;
+  }
+}
