@@ -67,10 +67,6 @@
     &--error {
       border: #d22d2d 0.0625rem solid;
     }
-
-    @include medium {
-      padding: 1rem;
-    }
   }
 
   &__textarea {

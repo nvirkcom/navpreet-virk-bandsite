@@ -287,11 +287,6 @@ body {
 .form__input--error, .form__textarea--error {
   border: #d22d2d 0.0625rem solid;
 }
-@media (min-width: 48rem) {
-  .form__input, .form__textarea {
-    padding: 1rem;
-  }
-}
 .form__textarea {
   font-family: "Avenir Next LT Pro";
   resize: none;
