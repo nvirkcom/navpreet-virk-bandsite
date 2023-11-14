@@ -32,6 +32,25 @@
   }
 }
 
+.button, .form__button {
+  background-color: #323232;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  height: 2.5rem;
+  min-width: 9.375rem;
+  padding: 0 2rem;
+  text-transform: uppercase;
+}
+.button:hover, .form__button:hover {
+  background-color: #000000;
+}
+@media (min-width: 48rem) {
+  .button, .form__button {
+    align-self: end;
+  }
+}
+
 @font-face {
   font-family: "Avenir Next LT Pro";
   font-weight: 400;
@@ -548,25 +567,11 @@ body {
 }
 
 .hero {
-  background-image: url("../assets/images/hero-bio.jpg");
-  background-position: center bottom -0.25rem;
   background-repeat: no-repeat;
   background-size: cover;
   color: #ffffff;
-  padding: 4rem 0;
   position: relative;
-  z-index: -2;
-}
-@media (min-width: 48rem) {
-  .hero {
-    padding: 9rem 0;
-  }
-}
-@media (min-width: 80rem) {
-  .hero {
-    background-position: center bottom -10.375rem;
-    padding: 15rem 0 15rem;
-  }
+  z-index: 0;
 }
 .hero::after {
   background-color: rgba(50, 50, 50, 0.5);
@@ -728,4 +733,21 @@ img {
 
 ul {
   list-style-type: none;
+}
+
+.hero {
+  background-image: url("../assets/images/hero-bio.jpg");
+  background-position: center bottom -0.25rem;
+  padding: 4rem 0;
+}
+@media (min-width: 48rem) {
+  .hero {
+    padding: 9rem 0;
+  }
+}
+@media (min-width: 80rem) {
+  .hero {
+    background-position: center bottom -10.375rem;
+    padding: 15rem 0 15rem;
+  }
 }

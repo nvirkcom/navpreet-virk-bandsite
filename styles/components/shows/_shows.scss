@@ -1,0 +1,139 @@
+@use "../../partials/shared" as *;
+@use "../../partials/mixins" as *;
+@use "../../partials/typography";
+@use "../../partials/variables" as *;
+
+.shows {
+  padding: 0;
+
+  @include medium {
+    padding: 0 2.25rem 2rem;
+  }
+
+  @include large {
+    display: flex;
+    gap: 10rem;
+    margin: auto;
+    max-width: 63.75rem;
+    padding: 0;
+    padding-bottom: 2rem;
+    width: 63.75rem;
+  }
+
+  &__heading {
+    @extend .section-header;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    @include large {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  color: $bandsite-black;
+  text-align: left;
+  width: 100%;
+
+  &__head {
+    display: none;
+
+    @include medium {
+      display: table-header-group;
+    }
+  }
+
+  &__heading {
+    @extend .label;
+    color: $silver;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    @include medium {
+      padding: 1rem;
+      padding-top: 0;
+    }
+
+    @include large {
+      padding-top: 4rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include medium {
+      display: table-row;
+      vertical-align: middle;
+    }
+  }
+
+  &__data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0 1rem;
+
+    @include medium {
+      border-bottom: $mercury 1px solid;
+      display: table-cell;
+
+      @include medium {
+        padding: 1rem;
+        // padding: 1rem 0;
+        width: 25%;
+      }
+    }
+
+    &::before {
+      @extend .label;
+      color: $silver;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      @include medium {
+        display: none;
+      }
+    }
+
+    &--date {
+      font-weight: 600;
+
+      &::before {
+        content: "Date";
+      }
+    }
+
+    &--venue {
+      &::before {
+        content: "Venue";
+      }
+    }
+
+    &--location {
+      &::before {
+        content: "Location";
+      }
+    }
+
+    &--button {
+      border-bottom: $mercury 1px solid;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__button {
+    @extend .button;
+    font-size: 0.875rem;
+
+    @include medium {
+      padding: 0;
+    }
+  }
+}

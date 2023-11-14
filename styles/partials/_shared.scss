@@ -1,4 +1,5 @@
 @use "./mixins" as *;
+@use "./variables" as *;
 
 .container {
   padding: 0 1rem;
@@ -31,5 +32,26 @@
 
   @include medium {
     display: block;
+  }
+}
+
+// Button
+.button {
+  @extend .button;
+  background-color: $bandsite-black;
+  border-radius: 0.25rem;
+  color: $white;
+  font-size: 0.9375rem;
+  height: 2.5rem;
+  min-width: 9.375rem;
+  padding: 0 2rem;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $bandsite-darkblack;
+  }
+
+  @include medium {
+    align-self: end;
   }
 }
