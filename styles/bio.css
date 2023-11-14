@@ -327,7 +327,12 @@ body {
 }
 .avatar--form {
   position: relative;
-  top: 1.5rem;
+  top: 1.6875rem;
+}
+@media (min-width: 48rem) {
+  .avatar--form {
+    top: 1.5rem;
+  }
 }
 
 .comment__container {

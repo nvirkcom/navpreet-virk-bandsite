@@ -109,7 +109,11 @@
 
   &--form {
     position: relative;
-    top: 1.5rem;
+    top: 1.6875rem;
+
+    @include medium {
+      top: 1.5rem;
+    }
   }
 }
 
