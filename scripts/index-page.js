@@ -1,152 +1,174 @@
-// Comment Class
-class Comment {
-  constructor(author, date, text, avatar) {
-    this.author = author;
-    this.avatar = `https://i.pravatar.cc/150?u=${this.author}`;
-    this.date = date;
-    this.text = text;
-  }
+// API instance
+const API = new BandSiteAPI("3db530b6-a408-4f63-809d-22bc38a6b3ae");
+let comments;
 
-  getAuthor() {
-    return this.author;
-  }
+/*
+  Try enabling sounds and:
+  - adding a comment without name and/or text
+  - adding a comment
+  - liking a comment
+  - deleting a comment
+*/
+let soundsEnabled = false;
+const DELETE_SOUND = new Audio("./assets/sounds/delete.mp3");
+const ERROR_SOUND = new Audio("./assets/sounds/error.mp3");
+const LIKE_SOUND = new Audio("./assets/sounds/like.mp3");
+const NEW_SOUND = new Audio("./assets/sounds/new.mp3");
 
-  getAvatar() {
-    return this.avatar;
-  }
+// Function called after page loads
+async function startApp() {
+  const RESPONSE = await API.getComments();
+  comments = RESPONSE;
+  renderComments();
+  // Update comments every second
+  setInterval(() => {
+    renderComments();
+  }, 1000);
+}
+startApp();
 
-  getDate() {
-    return this.date;
-  }
-
-  getText() {
-    return this.text;
-  }
-
-  setAvatar(avatar) {
-    this.avatar = avatar;
-  }
+// Function to render local comments on DOM
+function renderComments() {
+  const COMMENT_LIST = document.getElementById("comment-list");
+  COMMENT_LIST.innerHTML = "";
+  comments.forEach((comment) => COMMENT_LIST.append(getCommentHTML(comment)));
 }
 
-// Comments Array
-let comments = [];
-
-// Add Fake Comments to DOM
-function addFakeComments() {
-  // Fake Comments Array
-  const fakeComments = [
-    new Comment(
-      "Connor Walton",
-      "02/17/2021",
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic deserves reverence. Let us appreciate this for what it is and what it contains."
-    ),
-    new Comment(
-      "Emilie Beach",
-      "01/09/2021",
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day."
-    ),
-    new Comment(
-      "Miles Acosta",
-      "12/20/2020",
-      "I can t stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can t get enough."
-    ),
-  ];
-  const commentList = document.getElementById("comment-list");
-
-  fakeComments.forEach((comment) => {
-    commentList.append(getCommentHTML(comment, true));
-    comments.push(comment);
-  });
-}
-addFakeComments();
-
-// Generate Comment HTML
-function getCommentHTML(comment, fakeComment) {
-  const commentContainerEl = document.createElement("article");
-  commentContainerEl.classList.add("comment__container");
-
-  // If it'a fake comment create an avatar placeholder
-  if (fakeComment || comment.getAvatar()) {
-    const avatarEl = document.createElement("img");
-    avatarEl.alt = "User avatar";
-    avatarEl.src = comment.getAvatar();
-    avatarEl.classList.add("avatar");
-    commentContainerEl.append(avatarEl);
-  } else {
-    // Else create an avatar with photo
-    const avatarEl = document.createElement("img");
-    avatarEl.alt = "Mohan Muruge face profile";
-    avatarEl.src = "./assets/images/mohan-muruge.jpg";
-    avatarEl.classList.add("avatar");
-    commentContainerEl.append(avatarEl);
-  }
-
-  // Comment Content
-  const commentContentEl = document.createElement("div");
-  commentContentEl.classList.add("comment__content");
-  commentContainerEl.append(commentContentEl);
-
-  // Comment Row
-  const commentRowEl = document.createElement("div");
-  commentRowEl.classList.add("comment__row");
-  commentContentEl.append(commentRowEl);
-
-  // Comment Author
-  const commentAuthorEl = document.createElement("h3");
-  commentAuthorEl.classList.add("comment__author");
-  commentAuthorEl.textContent = comment.getAuthor();
-  commentRowEl.append(commentAuthorEl);
-
-  // Comment Date
-  const commentDateEl = document.createElement("p");
-  commentDateEl.classList.add("comment__date");
-  const date = new Date(comment.getDate());
-  commentDateEl.textContent = moment(date).fromNow();
-  commentRowEl.append(commentDateEl);
-
-  // Comment Text
-  const commentTextEl = document.createElement("p");
-  commentTextEl.textContent = comment.getText();
-  commentContentEl.append(commentTextEl);
-
-  // Return Comment Container
-  return commentContainerEl;
-}
-
-// Form Submit Event Listener
-document.getElementById("form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  // Validate Form
-  if (isValidForm(e.target)) {
-    const newComment = new Comment(
-      e.target.author.value,
-      Date.now(),
-      e.target.comment.value
-    );
-    newComment.setAvatar("./assets/images/mohan-muruge.jpg");
-    // When first comment is added start an interval to update time when comment was added
-    if (comments.length === 0) {
-      setInterval(() => {
-        addCommentsToHTML();
-      }, 5000);
+/*
+  Function to generate comment HTML
+  
+  Expected Input: comment Object
+    {
+      name: string,
+      comment: string,
+      id: number,
+      likes: number,
+      timestamp: number
     }
-    comments.push(newComment);
-    addCommentsToHTML();
+  
+  Expected output: HTML Node
+    <article class="comment__container">
+      <img
+        alt="comment.name avatar"
+        src="https://i.pravatar.cc/150?u=comment.name"
+        class="avatar"
+      />
+      <div class="comment__content">
+        <div class="comment__row">
+          <h3 class="comment__author">comment.name</h3>
+          <p class="comment__date">comment.date processed with moment.js</p>
+        </div>
+        <p>comment.comment</p>
+      </div>
+    </article>
+*/
+function getCommentHTML(comment) {
+  const COMMENT_CONTAINER = document.createElement("article");
+  COMMENT_CONTAINER.classList.add("comment__container");
+
+  const AVATAR = document.createElement("img");
+  AVATAR.alt = `${comment.name} avatar`;
+  AVATAR.src = `https://i.pravatar.cc/150?u=${comment.name}`;
+  AVATAR.classList.add("avatar");
+  COMMENT_CONTAINER.append(AVATAR);
+
+  const COMMENT_CONTENT = document.createElement("div");
+  COMMENT_CONTENT.classList.add("comment__content");
+  COMMENT_CONTAINER.append(COMMENT_CONTENT);
+
+  const COMMENT_ROW = document.createElement("div");
+  COMMENT_ROW.classList.add("comment__row");
+  COMMENT_CONTENT.append(COMMENT_ROW);
+
+  const COMMENT_AUTHOR = document.createElement("h3");
+  COMMENT_AUTHOR.classList.add("comment__author");
+  COMMENT_AUTHOR.textContent = comment.name;
+  COMMENT_ROW.append(COMMENT_AUTHOR);
+
+  const COMMENT_DATE = document.createElement("p");
+  COMMENT_DATE.classList.add("comment__date");
+  COMMENT_DATE.textContent = moment(comment.timestamp).fromNow();
+  COMMENT_ROW.append(COMMENT_DATE);
+
+  const COMMENT_TEXT = document.createElement("p");
+  COMMENT_TEXT.textContent = comment.comment;
+  COMMENT_CONTENT.append(COMMENT_TEXT);
+
+  const ICONS_ROW = document.createElement("div");
+  ICONS_ROW.classList.add("comment__row", "comment__row--icons");
+  COMMENT_CONTENT.append(ICONS_ROW);
+
+  const LIKES__CONTAINER = document.createElement("span");
+  LIKES__CONTAINER.classList.add("comment__icon--container");
+  ICONS_ROW.append(LIKES__CONTAINER);
+
+  const LIKE_ICON = document.createElement("i");
+  LIKE_ICON.addEventListener("click", async (e) => {
+    await API.likeComment(comment.id);
+    if (soundsEnabled) {
+      LIKE_SOUND.currentTime = 0;
+      LIKE_SOUND.play();
+    }
+    comment.likes++;
+    e.target.nextSibling.textContent = ` ${comment.likes}`;
+  });
+  LIKE_ICON.classList.add(
+    "bi",
+    "bi-hand-thumbs-up-fill",
+    "comment__icon",
+    "comment__icon--like"
+  );
+  LIKES__CONTAINER.append(LIKE_ICON);
+  LIKES__CONTAINER.append(` ${comment.likes}`);
+
+  const DELETE_ICON = document.createElement("i");
+  DELETE_ICON.addEventListener("click", async (e) => {
+    await API.deleteComment(comment.id);
+    if (soundsEnabled) {
+      DELETE_SOUND.currentTime = 0;
+      DELETE_SOUND.play();
+    }
+    comments.splice(comments.indexOf(comment), 1);
+    renderComments();
+  });
+  DELETE_ICON.classList.add(
+    "bi",
+    "bi-trash-fill",
+    "comment__icon",
+    "comment__icon--delete"
+  );
+  ICONS_ROW.append(DELETE_ICON);
+
+  return COMMENT_CONTAINER;
+}
+
+// Click event listener for the form button
+document.getElementById("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (validateInputs(e.target)) {
+    const RESPONSE = await API.postComment({
+      name: e.target.author.value,
+      comment: e.target.comment.value,
+    });
+    comments.reverse();
+    comments.push(RESPONSE);
+    comments.reverse();
+    if (soundsEnabled) {
+      NEW_SOUND.currentTime = 0;
+      NEW_SOUND.play();
+    }
+    renderComments();
     e.target.reset();
   }
 });
 
-// Add comments to HTML
-function addCommentsToHTML(newComment) {
-  const commentList = document.getElementById("comment-list");
-  commentList.innerHTML = "";
-  comments.forEach((comment) => {
-    commentList.prepend(getCommentHTML(comment));
-  });
-}
-
-// Validate Form
-function isValidForm(form) {
+/*
+  Function to validate the form inputs.
+  If the inputs are invalid form__input--error class is added.
+  Arguments: form element
+*/
+function validateInputs(form) {
   let isValid = true;
 
   if (form.author.value == "") {
@@ -161,6 +183,11 @@ function isValidForm(form) {
     isValid = false;
   } else {
     form.comment.classList.remove("form__input--error");
+  }
+
+  if (!isValid && soundsEnabled) {
+    ERROR_SOUND.currentTime = 0;
+    ERROR_SOUND.play();
   }
 
   return isValid;

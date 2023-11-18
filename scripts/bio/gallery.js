@@ -1,49 +1,78 @@
-// Images Array
-const images = [
-  { alt: "Photo Gallery 1", src: "./assets/images/photo-gallery-1.jpg" },
-  { alt: "Photo Gallery 2", src: "./assets/images/photo-gallery-2.jpg" },
-  { alt: "Photo Gallery 3", src: "./assets/images/photo-gallery-3.jpg" },
-  { alt: "Photo Gallery 4", src: "./assets/images/photo-gallery-4.jpg" },
-  { alt: "Photo Gallery 5", src: "./assets/images/photo-gallery-5.jpg" },
-  { alt: "Photo Gallery 6", src: "./assets/images/photo-gallery-6.jpg" },
-  { alt: "Photo Gallery 7", src: "./assets/images/photo-gallery-7.jpg" },
-  { alt: "Photo Gallery 8", src: "./assets/images/photo-gallery-8.jpg" },
-  { alt: "Photo Gallery 9", src: "./assets/images/photo-gallery-9.jpg" },
+// Array of image object with alt and src properties
+const IMAGES = [
+  {
+    alt: "A crowd of people at a concert",
+    src: "./assets/images/photo-gallery-1.jpg",
+  },
+  {
+    alt: "A woman with her arms up and her eyes closed",
+    src: "./assets/images/photo-gallery-2.jpg",
+  },
+  {
+    alt: "A crowd of people raising their hands in a concert",
+    src: "./assets/images/photo-gallery-3.jpg",
+  },
+  {
+    alt: "A woman standing on a stage with her arms raised",
+    src: "./assets/images/photo-gallery-4.jpg",
+  },
+  {
+    alt: "A crowd of people watching a concert",
+    src: "./assets/images/photo-gallery-5.jpg",
+  },
+  {
+    alt: "A man in black shirt and black pants on stage",
+    src: "./assets/images/photo-gallery-6.jpg",
+  },
+  {
+    alt: "A crowd at a concert",
+    src: "./assets/images/photo-gallery-7.jpg",
+  },
+  {
+    alt: "A person is touching a DJ console",
+    src: "./assets/images/photo-gallery-8.jpg",
+  },
+  {
+    alt: "A crowd of people at a concert",
+    src: "./assets/images/photo-gallery-9.jpg",
+  },
 ];
 
-// Add images to Gallery
+// This function add images to the gallery section
 function addImagesToGallery() {
-  const imageList = document.getElementById("image-list");
+  const IMAGE_LIST = document.getElementById("image-list");
 
-  images.forEach((image) => {
-    const liEl = document.createElement("li");
-    liEl.classList.add("image-list__item");
+  IMAGES.forEach((image) => {
+    const LI_EL = document.createElement("li");
+    LI_EL.classList.add("image-list__item");
 
-    const imageEl = document.createElement("img");
-    ["alt", "data-image-id", "src"].forEach((attribute) => {
-      imageEl.setAttribute(attribute, image[attribute]);
+    const IMAGE_EL = document.createElement("img");
+    ["alt", "src"].forEach((attribute) => {
+      IMAGE_EL.setAttribute(attribute, image[attribute]);
     });
-    imageEl.addEventListener("click", (e) => {
+
+    // Event listener to open the modal
+    IMAGE_EL.addEventListener("click", (e) => {
       openModal(e.target);
     });
 
-    liEl.append(imageEl);
-    imageList.append(liEl);
+    LI_EL.append(IMAGE_EL);
+    IMAGE_LIST.append(LI_EL);
   });
 }
 addImagesToGallery();
 
 // Modal
-const modal = document.getElementById("modal");
-const modalImage = document.getElementById("modal-image");
+const MODAL = document.getElementById("modal");
+const MODAL_IMAGE = document.getElementById("modal-image");
 
 // Open Modal
 function openModal(image) {
-  modalImage.alt = image.alt;
-  modalImage.src = image.src;
+  MODAL_IMAGE.alt = image.alt;
+  MODAL_IMAGE.src = image.src;
 
-  modal.classList.add("modal--show");
-  modal.classList.remove("modal--hidden");
+  MODAL.classList.add("modal--show");
+  MODAL.classList.remove("modal--hidden");
   setTimeout(() => {
     document.body.style.overflow = "hidden";
   });
@@ -52,11 +81,11 @@ function openModal(image) {
 // Close Modal
 document.getElementById("modal-close-button").addEventListener("click", () => {
   setTimeout(() => {
-    modalImage.alt = "";
-    modalImage.src = "";
+    MODAL_IMAGE.alt = "";
+    MODAL_IMAGE.src = "";
   }, 250);
 
-  modal.classList.remove("modal--show");
-  modal.classList.add("modal--hidden");
+  MODAL.classList.remove("modal--show");
+  MODAL.classList.add("modal--hidden");
   document.body.removeAttribute("style");
 });

@@ -1,89 +1,69 @@
-// Show Class
-class Show {
-  constructor(date, location, venue) {
-    this.date = date;
-    this.location = location;
-    this.venue = venue;
-  }
+// API instance
+const API = new BandSiteAPI("3db530b6-a408-4f63-809d-22bc38a6b3ae");
 
-  getDate() {
-    return this.date;
-  }
-
-  getLocation() {
-    return this.location;
-  }
-
-  getVenue() {
-    return this.venue;
-  }
+async function startApp() {
+  const RESPONSE = await API.getShows();
+  RESPONSE.forEach((show) => {
+    document.getElementById("table-body").append(getTableRowHTML(show));
+  });
 }
+startApp();
 
-// Shows Array
-const shows = [
-  new Show("Mon Sept 06 2021", "Ronald Lane", "San Francisco, CA"),
-  new Show("Tue Sept 21 2021", "Pier 3 East", "San Francisco, CA"),
-  new Show("Fri Oct 15 2021", "View Lounge", "San Francisco, CA"),
-  new Show("Sat Nov 06 2021", "Hyatt Agency", "San Francisco, CA"),
-  new Show("Fri Nov 26 2021", "Moscow Center", "San Francisco, CA"),
-  new Show("Wed Dec 15 2021", "Press Club", "San Francisco, CA"),
-];
-
-// Add Shows to DOM
-shows.forEach((show) => {
+function getTableRowHTML(show) {
   // Table Row
-  const trEl = document.createElement("tr");
-  trEl.classList.add("table__row");
-  trEl.addEventListener("click", (e) => {
+  const TR_EL = document.createElement("tr");
+  TR_EL.classList.add("table__row");
+  TR_EL.addEventListener("click", (e) => {
     onTableRowClick(e.target);
   });
 
   // Date Table Data
-  const dateEl = document.createElement("td");
+  const DATE_EL = document.createElement("td");
   ["table__data", "table__data--date"].forEach((className) =>
-    dateEl.classList.add(className)
+    DATE_EL.classList.add(className)
   );
-  dateEl.textContent = show.getDate();
-  trEl.append(dateEl);
+  const DATE = new Date(show.date);
+  DATE_EL.textContent = DATE.toDateString();
+  TR_EL.append(DATE_EL);
 
   // Venue Table Data
-  const venueEl = document.createElement("td");
+  const VENUE_EL = document.createElement("td");
   ["table__data", "table__data--venue"].forEach((className) =>
-    venueEl.classList.add(className)
+    VENUE_EL.classList.add(className)
   );
-  venueEl.textContent = show.getVenue();
-  trEl.append(venueEl);
+  VENUE_EL.textContent = show.place;
+  TR_EL.append(VENUE_EL);
 
   // Location Table Data
-  const locationEl = document.createElement("td");
+  const LOCATION_EL = document.createElement("td");
   ["table__data", "table__data--location"].forEach((className) =>
-    locationEl.classList.add(className)
+    LOCATION_EL.classList.add(className)
   );
-  locationEl.textContent = show.getLocation();
-  trEl.append(locationEl);
+  LOCATION_EL.textContent = show.location;
+  TR_EL.append(LOCATION_EL);
 
   // Button Table Data
-  const buttonTdEl = document.createElement("td");
+  const BUTTON_TD_EL = document.createElement("td");
   ["table__data", "table__data--button"].forEach((className) =>
-    buttonTdEl.classList.add(className)
+    BUTTON_TD_EL.classList.add(className)
   );
-  trEl.append(buttonTdEl);
+  TR_EL.append(BUTTON_TD_EL);
 
   // Button
-  const buttonEl = document.createElement("button");
-  ["table__button"].forEach((className) => buttonEl.classList.add(className));
-  buttonEl.textContent = "Buy Tickets";
-  buttonTdEl.append(buttonEl);
+  const BUTTON_EL = document.createElement("button");
+  BUTTON_EL.classList.add("table__button");
+  BUTTON_EL.textContent = "Buy Tickets";
+  BUTTON_TD_EL.append(BUTTON_EL);
 
-  // Add Table Row to Table Body
-  document.getElementById("table-body").append(trEl);
-});
+  return TR_EL;
+}
 
+// Function to add active class to the clicked row
 function onTableRowClick(eventTarget) {
-  const row = eventTarget.closest("tr");
-  const rows = document.querySelectorAll(".table__row");
-  rows.forEach((row) => {
+  const ROW = eventTarget.closest("tr");
+  const ROWS = document.querySelectorAll(".table__row");
+  ROWS.forEach((row) => {
     row.classList.remove("table__row--active");
   });
-  row.classList.add("table__row--active");
+  ROW.classList.add("table__row--active");
 }

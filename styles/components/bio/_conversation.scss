@@ -142,6 +142,11 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+
+    &--icons {
+      align-items: baseline;
+      margin-top: 2rem;
+    }
   }
 
   &__author {
@@ -152,5 +157,29 @@
 
   &__date {
     color: $silver;
+  }
+
+  &__icon {
+    cursor: pointer;
+    font-size: 1.25rem;
+    opacity: 80%;
+    transition: 125ms;
+
+    &:hover {
+      opacity: 100%;
+    }
+
+    &--container {
+      @extend .label;
+      color: $silver;
+    }
+
+    &--like {
+      color: dodgerblue;
+    }
+
+    &--delete {
+      color: crimson;
+    }
   }
 }
