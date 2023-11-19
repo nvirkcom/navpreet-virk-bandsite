@@ -1,6 +1,7 @@
 @use "./mixins" as *;
 @use "./variables" as *;
 
+// Container
 .container {
   padding: 0 1rem;
 
@@ -16,6 +17,7 @@
   }
 }
 
+// Link hover effect
 .hover-effect {
   transition: 125ms;
 

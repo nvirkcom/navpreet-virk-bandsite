@@ -1,5 +1,6 @@
 @use "./variables" as *;
 
+// Breakpoints
 @mixin medium {
   @media (min-width: $breakpoint-medium) {
     @content;

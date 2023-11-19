@@ -12,13 +12,13 @@
     padding-bottom: 2.5rem;
   }
 
-  // Heading
   &__heading {
     @extend .section-header;
     font-weight: 600;
   }
 }
 
+// Image List
 .image-list {
   display: flex;
   flex-wrap: wrap;

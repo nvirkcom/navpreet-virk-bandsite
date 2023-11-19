@@ -3,6 +3,7 @@
 @use "../../partials/typography";
 @use "../../partials/variables" as *;
 
+// Footer
 .footer {
   @extend .footer-copy;
   background-color: $bandsite-black;
@@ -48,6 +49,7 @@
     }
   }
 
+  // Footer Copyright
   &__copyright {
     @extend .label;
     font-weight: 400;
@@ -60,6 +62,7 @@
   }
 }
 
+// Social Icons
 .social-icons {
   display: flex;
   gap: 2rem;
@@ -74,6 +77,7 @@
   }
 }
 
+// Logo
 .logo {
   &--top {
     display: none;
@@ -101,6 +105,7 @@
   }
 }
 
+// Address
 .address {
   font-style: normal;
   display: flex;

@@ -10,7 +10,7 @@
   position: relative;
   z-index: 0;
 
-  // Overlay
+  // Hero Overlay
   &::after {
     background-color: rgba($bandsite-black, 50%);
     content: "";
@@ -21,7 +21,7 @@
     z-index: -1;
   }
 
-  // Heading
+  // Hero Heading
   &__heading {
     @extend .page-header;
     font-weight: 600;

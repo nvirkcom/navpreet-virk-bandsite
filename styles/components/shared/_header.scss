@@ -3,12 +3,14 @@
 @use "../../partials/typography";
 @use "../../partials/variables" as *;
 
+// Header
 .header {
   background-color: $bandsite-black;
   color: $mercury;
   text-align: center;
 }
 
+// Logo
 .logo {
   @extend .logo;
   box-sizing: content-box;
@@ -19,6 +21,7 @@
   }
 }
 
+// Nav
 .nav {
   @extend .container;
   padding: 0;
@@ -46,6 +49,7 @@
     }
   }
 
+  // Nav Item
   &__item {
     flex-grow: 1;
     width: 50%;
@@ -56,6 +60,7 @@
     }
   }
 
+  // Nav Link
   &__link {
     @extend .body-copy;
     display: block;

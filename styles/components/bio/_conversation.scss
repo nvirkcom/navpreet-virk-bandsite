@@ -3,6 +3,7 @@
 @use "../../partials/typography";
 @use "../../partials/variables" as *;
 
+// Conversation
 .conversation {
   @extend .container;
 
@@ -95,6 +96,7 @@
   }
 }
 
+// Avatar
 .avatar {
   border-radius: 50%;
   height: 2.25rem;
@@ -117,6 +119,7 @@
   }
 }
 
+// Comment
 .comment {
   &__container {
     border-bottom: $mercury 0.0625rem solid;

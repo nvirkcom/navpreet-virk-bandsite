@@ -3,6 +3,7 @@
 @use "../../partials/typography";
 @use "../../partials/variables" as *;
 
+// Shows
 .shows {
   padding: 0;
 
@@ -32,6 +33,7 @@
   }
 }
 
+// Table
 .table {
   border-collapse: collapse;
   color: $bandsite-black;
